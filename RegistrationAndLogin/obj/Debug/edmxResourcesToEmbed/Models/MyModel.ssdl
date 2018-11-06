@@ -12,6 +12,16 @@
     <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
     <Property Name="IsEmailVerified" Type="bit" Nullable="false" />
     <Property Name="ActivationCode" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CPF" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="RG" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Estado" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Cidade" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Renda" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Dependentes" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Telefone" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CEP" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Endereço" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Numero" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityContainer Name="MyDatabaseModelStoreContainer">
     <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />

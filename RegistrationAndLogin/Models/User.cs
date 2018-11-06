@@ -22,5 +22,15 @@ namespace RegistrationAndLogin.Models
         public string Password { get; set; }
         public bool IsEmailVerified { get; set; }
         public System.Guid ActivationCode { get; set; }
+        public string CPF { get; set; }
+        public string RG { get; set; }
+        public string Estado { get; set; }
+        public string Cidade { get; set; }
+        public string Renda { get; set; }
+        public string Dependentes { get; set; }
+        public string Telefone { get; set; }
+        public string CEP { get; set; }
+        public string Endereço { get; set; }
+        public string Numero { get; set; }
     }
 }

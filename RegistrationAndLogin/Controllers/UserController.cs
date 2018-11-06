@@ -112,7 +112,7 @@ namespace RegistrationAndLogin.Controllers
             string message = "";
             using (MyDatabaseEntities dc = new MyDatabaseEntities())
             {
-                var v = dc.Users.Where(a => a.EmailID == login.EmailID).FirstOrDefault();
+                User v = NewMethod(login, dc);
                 if (v != null)
                 {
                     if (!v.IsEmailVerified)
@@ -121,7 +121,7 @@ namespace RegistrationAndLogin.Controllers
                         return View();
                     }
 
-                    if (string.Compare(Crypto.Hash(login.Password),v.Password) == 0)
+                    if (string.Compare(Crypto.Hash(login.Password), v.Password) == 0)
                     {
                         int timeout = login.RememberMe ? 525600 : 20;
                         var ticket = new FormsAuthenticationTicket(login.EmailID, login.RememberMe, timeout);
@@ -153,6 +153,16 @@ namespace RegistrationAndLogin.Controllers
             }
             ViewBag.Message = message;
             return View();
+        }
+
+        private static User NewMethod(UserLogin login, MyDatabaseEntities dc)
+        {
+            return NewMethod1(login, dc);
+        }
+
+        private static User NewMethod1(UserLogin login, MyDatabaseEntities dc)
+        {
+            return dc.Users.Where(a => a.EmailID == login.EmailID).FirstOrDefault();
         }
 
         //Logout

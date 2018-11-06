@@ -14,5 +14,10 @@ namespace RegistrationAndLogin.Controllers
         {
             return View();
         }
+        [Authorize]
+        public ActionResult Dubai()
+        {
+            return View();
+        }
     }
 }

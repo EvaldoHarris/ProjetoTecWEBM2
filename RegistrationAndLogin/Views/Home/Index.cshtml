@@ -1,12 +1,31 @@
-﻿@{
+﻿<link rel="stylesheet" type="text/css" href="~/Layout.css" />
+@{
     ViewBag.Title = "Index";
 }
-<h2>Index</h2>
-Welcome @HttpContext.Current.User.Identity.Name
+<h2>Home</h2>
+
 @if (Request.IsAuthenticated)
 {
-    using (Html.BeginForm("Logout","User", FormMethod.Post, new { id="logoutForm"}))
+    using (Html.BeginForm("Logout", "User", FormMethod.Post, new { id = "logoutForm" }))
     {
-        <a href="javascript:document.getElementById('logoutForm').submit()">Sair</a>
+        <p>
+            Seja Bem vindo @HttpContext.Current.User.Identity.Name
+        </p>
     }
+
+    <div id="Dubai">
+        <a href="/Home/Dubai"><img src="~/img/dubai.jpg" width="280" height="200" class="Dubai"></a>
+        <p>Pacote Dubai 7 noites R$5.000,00</p>
+
+    </div>
+
+    <ul class="demo-1 effect">
+        <li>
+            <h2>Pacote Dubai</h2>
+            <p>7 noites R$5.000,00</p>
+        </li>
+        <li><a href="/Home/Dubai"><img class="top" src="~/img/dubai.jpg" width="300" height="250"  alt="" /></a></li>
+    </ul>
+
+
 }

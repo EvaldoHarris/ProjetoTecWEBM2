@@ -1,0 +1,15 @@
+﻿img,a {
+    margin: 0px;
+    border: 1px solid #DD6B26;
+    padding: 5px;
+}
+
+.floatright {
+    margin-left: 10px;
+    float: right;
+}
+
+.floatleft {
+    float: left;
+    margin-right: 10px;
+}

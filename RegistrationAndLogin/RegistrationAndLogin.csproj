@@ -24,6 +24,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -136,11 +137,17 @@
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="img\d2.jpg" />
+    <Content Include="img\d3.jpg" />
+    <Content Include="img\d4.jpeg" />
+    <Content Include="img\dubai.jpg" />
+    <Content Include="Layout.css" />
     <Content Include="Models\MyModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>MyModel.Context.cs</LastGenOutput>
       <DependentUpon>MyModel.edmx</DependentUpon>
     </Content>
+    <Content Include="Models\MyModel.edmx.sql" />
     <Content Include="Models\MyModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>MyModel.edmx</DependentUpon>
@@ -214,6 +221,7 @@
     <Content Include="Views\User\VerifyAccount.cshtml" />
     <Content Include="Views\User\Login.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Dubai.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

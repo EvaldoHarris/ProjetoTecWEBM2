@@ -1,9 +1,14 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2046
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegistrationAndLogin", "RegistrationAndLogin\RegistrationAndLogin.csproj", "{50A2C155-5AE5-4C3D-BC1A-A5C46F8CBB88}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4880D3E7-3D81-45B4-A0F0-EFAA0DB52481}"
+	ProjectSection(SolutionItems) = preProject
+		Layout.css = Layout.css
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,5 +23,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {08AC14E5-BF6B-4174-A7DD-BDCDA1C0A850}
 	EndGlobalSection
 EndGlobal
