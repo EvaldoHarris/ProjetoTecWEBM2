@@ -15,7 +15,12 @@ namespace RegistrationAndLogin.Controllers
             return View();
         }
         [Authorize]
-        public ActionResult Dubai()
+        public ActionResult Florianopolis()
+        {
+            return View();
+        }
+        [Authorize]
+        public ActionResult RiodeJaneiro()
         {
             return View();
         }

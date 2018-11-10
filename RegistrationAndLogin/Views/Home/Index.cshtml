@@ -1,31 +1,59 @@
-﻿<link rel="stylesheet" type="text/css" href="~/Layout.css" />
+﻿
 @{
     ViewBag.Title = "Index";
 }
-<h2>Home</h2>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pacotes</title>
+    <link href="~/Content/StyleHome.css" rel="stylesheet" type="text/css" />
+</head>
 
 @if (Request.IsAuthenticated)
 {
     using (Html.BeginForm("Logout", "User", FormMethod.Post, new { id = "logoutForm" }))
     {
-        <p>
+        <p class="saud">
             Seja Bem vindo @HttpContext.Current.User.Identity.Name
         </p>
     }
-
-    <div id="Dubai">
-        <a href="/Home/Dubai"><img src="~/img/dubai.jpg" width="280" height="200" class="Dubai"></a>
-        <p>Pacote Dubai 7 noites R$5.000,00</p>
-
-    </div>
-
-    <ul class="demo-1 effect">
-        <li>
-            <h2>Pacote Dubai</h2>
-            <p>7 noites R$5.000,00</p>
-        </li>
-        <li><a href="/Home/Dubai"><img class="top" src="~/img/dubai.jpg" width="300" height="250"  alt="" /></a></li>
-    </ul>
-
-
 }
+        <body>
+
+            <div class="titulo">
+                <h1>Compra de passagens</h1>
+                <h2>Selecione os pacotes</h2>
+            </div>
+            <div id="D">
+                <div id="Florianopolis">
+                    <a href="/Home/Florianopolis"><img src="~/img/pontefloriano.jpg" width="280" height="200" float="left"></a>
+                    <div class="p">Florianopolis</div>
+                </div>
+            </div>
+            <div id="R">
+                <div id="RioJaneiro">    
+                        <a href="/Home/RiodeJaneiro"><img src="~/img/Rio de Janeiro.jpg" width="280" height="200"></a>    
+                            <div class="p">Rio de Janeiro</div>        
+                </div>
+            </div>
+            <!--  <div class="container2">
+        <div id="Recife">
+            <figure>
+                <a href="/Home/Dubai"><img src="~/img/RECIFE.jpg" width="280" height="200"></a>
+                <figcaption>
+                    <p class="legenda">Recife</p>
+                </figcaption>
+            </figure>
+        </div>
+    </div>
+        <div id="fortaleza">
+         <a href="/Home/Dubai"><img src="~/img/fortaleza.jpg" width="280" height="200"></a>
+         <div class="p">Fortaleza</div>
+     </div>
+
+      -->
+
+        </body>
+</html>
+
+

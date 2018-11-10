@@ -1,0 +1,33 @@
+﻿.saud{
+    color: black;
+    text-align: right;
+}
+
+.titulo{
+    text-align: center;
+    padding-top: 20px;
+}
+img a {
+    float: left;
+}
+#D, #R {
+    table-layout: fixed;
+    float: left;
+    font-family: Arial, sans-serif;
+    padding-top: 50px;
+    padding-right: -50px;
+    padding-left: 300px;
+}
+.p {
+    padding: 5px 10px;
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    position: relative;
+}
+a:hover {
+    opacity: 0.6;
+}

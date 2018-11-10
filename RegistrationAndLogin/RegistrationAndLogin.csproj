@@ -135,12 +135,24 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\StyleHome.css" />
+    <Content Include="Content\StylePag.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="img\d2.jpg" />
-    <Content Include="img\d3.jpg" />
-    <Content Include="img\d4.jpeg" />
-    <Content Include="img\dubai.jpg" />
+    <Content Include="img\bWuREk.jpg" />
+    <Content Include="img\Dicas-Rio-de-Janeiro-3.jpg" />
+    <Content Include="img\f2.jpg" />
+    <Content Include="img\f3.jpg" />
+    <Content Include="img\f4.jpg" />
+    <Content Include="img\fortaleza.jpg" />
+    <Content Include="img\Hotel Atlantico Business Centro.jpg" />
+    <Content Include="img\hotel-maria-do-mar-floripa.jpg" />
+    <Content Include="img\hotelF.jpg" />
+    <Content Include="img\pontefloriano.jpg" />
+    <Content Include="img\RECIFE.jpg" />
+    <Content Include="img\Rio de Janeiro.jpg" />
+    <Content Include="img\Rio Othon Palace.jpg" />
+    <Content Include="img\rio-de-janeiro-city-tour.jpg" />
     <Content Include="Layout.css" />
     <Content Include="Models\MyModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -221,7 +233,8 @@
     <Content Include="Views\User\VerifyAccount.cshtml" />
     <Content Include="Views\User\Login.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\Dubai.cshtml" />
+    <Content Include="Views\Home\Florianopolis.cshtml" />
+    <Content Include="Views\Home\RiodeJaneiro.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

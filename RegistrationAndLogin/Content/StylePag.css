@@ -1,0 +1,107 @@
+﻿body{
+    background-color: gray;
+}
+.img{
+    float: left;
+}
+h2{
+    text-align: center;
+}
+
+.conteudo {
+    display: table;
+    border: solid black 1px;
+    border-radius: 3px;
+    margin-left: 0px;
+    margin-right: 300px;
+    background-color: white;
+    padding-right: 99px;
+    margin-top: 100px;
+    margin-bottom: -50px;
+}
+.conteudo2 {
+    display: table;
+    border: solid black 1px;
+    border-radius: 3px;
+    margin-left: 0px;
+    margin-right: 300px;
+    background-color: white;
+    padding-right: 99px;
+    margin-top: -450px;
+}
+.imgT{
+    padding-bottom: 150px;
+}
+.hotel {
+    padding-top: auto;
+    display: table-cell;
+    float: left;
+    width: 300px;
+    height: 200px;
+}
+.p {    
+    font-size: 30px;
+    font-weight: bold;
+    color: black;
+    padding-top: 10px;
+    margin-top: -200px;
+    display: table-cell;
+    float: left;
+    width: 800px;
+    padding-left: 320px;
+}
+input {
+    display: table-cell;
+    border: solid black 1px;
+    background-color: red;
+    border-radius: 3px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 30px;
+    margin-left: 44px;
+    padding-right: 25px;
+    padding-left: 25px;
+    padding-top: 0px;
+}
+.preco{
+    border: solid black 1px;
+    background-color: white;
+    margin-left: 900px;
+    margin-right: 20px;
+    margin-top:-201px;
+    margin-bottom:500px;
+    padding-bottom: 10px;    
+    background-color: lightsteelblue    ;
+}
+.preco2 {
+    border: solid black 1px;
+    background-color: white;
+    margin-left: 900px;
+    margin-right: 20px;
+    margin-top: -200px;
+    margin-bottom: 500px;
+    padding-bottom: 10px;
+    background-color: lightsteelblue;
+}
+.p2{
+    margin-top: 60px;
+    margin-left: 350px;
+    color: black;
+}
+.legenda{
+    color: black;
+    margin-top: 30px;
+    margin-left: 30px;
+    font-size: 20px;
+}
+.RealP{
+    color:black;
+    margin-left: 50px;
+    margin-top: 30px;   
+}
+.precoP{
+    margin-top: -50px;
+    margin-left: 80px;
+    font-size: 35px;
+}
