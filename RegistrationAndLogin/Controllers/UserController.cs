@@ -31,7 +31,7 @@ namespace RegistrationAndLogin.Controllers
             {
 
                 #region //Email is already Exist 
-                bool isExist = IsEmailExist(user.EmailID);
+                var isExist = IsEmailExist(user.EmailID);
                 if (isExist)
                 {
                     ModelState.AddModelError("EmailExist", "Email já existe");
