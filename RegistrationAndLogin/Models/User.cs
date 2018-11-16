@@ -14,6 +14,12 @@ namespace RegistrationAndLogin.Models
     
     public partial class User
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public User()
+        {
+            this.Compras = new HashSet<Compra>();
+        }
+    
         public int UserID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -32,5 +38,8 @@ namespace RegistrationAndLogin.Models
         public string CEP { get; set; }
         public string Endereço { get; set; }
         public string Numero { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Compra> Compras { get; set; }
     }
 }

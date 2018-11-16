@@ -26,5 +26,11 @@ namespace RegistrationAndLogin.Models
         }
     
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Hotel> Hotels { get; set; }
+        public virtual DbSet<Voo> Voos { get; set; }
+        public virtual DbSet<Pacote> Pacotes { get; set; }
+        public virtual DbSet<Pagamento> Pagamentoes { get; set; }
+        public virtual DbSet<Compra> Compras { get; set; }
+        public virtual DbSet<Carrinho> Carrinhoes { get; set; }
     }
 }
