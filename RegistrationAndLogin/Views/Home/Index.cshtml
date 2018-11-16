@@ -7,6 +7,7 @@
 <head>
     <title>Pacotes</title>
     <link href="~/Content/StyleHome.css" rel="stylesheet" type="text/css" />
+
 </head>
 
 @if (Request.IsAuthenticated)
@@ -18,42 +19,40 @@
         </p>
     }
 }
-        <body>
+<body>
 
-            <div class="titulo">
-                <h1>Compra de passagens</h1>
-                <h2>Selecione os pacotes</h2>
-            </div>
-            <div id="D">
-                <div id="Florianopolis">
-                    <a href="/Home/Florianopolis"><img src="~/img/pontefloriano.jpg" width="280" height="200" float="left"></a>
-                    <div class="p">Florianopolis</div>
-                </div>
-            </div>
-            <div id="R">
-                <div id="RioJaneiro">    
-                        <a href="/Home/RiodeJaneiro"><img src="~/img/Rio de Janeiro.jpg" width="280" height="200"></a>    
-                            <div class="p">Rio de Janeiro</div>        
-                </div>
-            </div>
-            <!--  <div class="container2">
-        <div id="Recife">
-            <figure>
-                <a href="/Home/Dubai"><img src="~/img/RECIFE.jpg" width="280" height="200"></a>
-                <figcaption>
-                    <p class="legenda">Recife</p>
-                </figcaption>
-            </figure>
-        </div>
+    <div class="titulo">
+        <h1>Compra de pacotes</h1>
+        <h2>Selecione os pacotes</h2>
     </div>
-        <div id="fortaleza">
-         <a href="/Home/Dubai"><img src="~/img/fortaleza.jpg" width="280" height="200"></a>
-         <div class="p">Fortaleza</div>
-     </div>
+    <div id="F">
+        <img src="~/img/Rio de Janeiro.jpg" width="280" height="200">
+        <a href="/Home/RiodeJaneiro" class="pF">Rio de Janeiro </br> Os melhores pacotes</a>
+    </div>
 
-      -->
 
-        </body>
+    <div id="F">
+        <img src="~/img/pontefloriano.jpg" width="280" height="200">
+        <a href="/Home/Florianopolis" class="pF">Florianopolis</br> Os melhores pacotes</a>
+    </div>
+
+    <div id="F">
+        <img src="~/img/Morro-de-SP.jpg" width="280" height="200">
+        <a href="/Home/Florianopolis" class="pF">Porto Seguro</br> Os melhores pacotes</a>
+    </div>
+
+    <div id="F">
+        <img src="~/img/Morro-de-SP.jpg" width="280" height="200">
+        <a href="/Home/Florianopolis" class="pF">Porto Seguro</br> Os melhores pacotes</a>
+    </div>
+
+    <!--<div id="">
+        <img src="~/img/praia-porto-seguro-750x450.jpg" width="280" height="200">
+        <a href="/Home/Florianopolis" class="pF">Porto Seguro</br> Os melhores pacotes</a>
+    </div>
+        -->
+
+</body>
 </html>
 
 

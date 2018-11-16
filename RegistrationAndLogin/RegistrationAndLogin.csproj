@@ -241,6 +241,12 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Florianopolis.cshtml" />
     <Content Include="Views\Home\RiodeJaneiro.cshtml" />
+    <Content Include="Views\Home\Carrinho.cshtml" />
+    <Content Include="Views\Home\Voo.cshtml" />
+    <Content Include="Views\Home\Pagamento.cshtml" />
+    <Content Include="Views\Home\Compra.cshtml" />
+    <Content Include="Views\Home\Contato.cshtml" />
+    <Content Include="Views\Home\Hotel.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

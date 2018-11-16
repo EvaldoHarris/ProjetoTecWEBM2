@@ -16,9 +16,19 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
                 </button>
                 @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
                 <a href="/Home/Contato" class="navbar-brand">Contato</a>
+                <a href="/Home/Compra" class="navbar-brand">Compra</a>
+                <a href="/Home/Hotel" class="navbar-brand">Hotel</a>
+                <a href="/Home/Voo" class="navbar-brand">Voo</a>
+                <a href="/Home/Pagamento" class="navbar-brand">Pagamento</a>
+                <a href="/Home/Carrinho" class="navbar-brand">Carrinho</a>
                 @if (Request.IsAuthenticated)
                 {
                     <a href="javascript:document.getElementById('logoutForm').submit()" class="navbar-brand">Sair</a>
