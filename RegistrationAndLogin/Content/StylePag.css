@@ -9,11 +9,15 @@ body {
 
 .img {
     float: left;
+
 }
 
 h2 {
+    text-shadow: white 0.1em 0.10em 0.10em;
     text-align: center;
     color: black;
+    margin-top: 30px;
+    margin-bottom: 20px;
 }
 
 .conteudo {
@@ -79,7 +83,7 @@ input {
 }
 
 .preco {
-    border: solid black 2px;
+    border: solid black 1px;
     background-color: white;
     margin-left: 900px;
     margin-right: 20px;
