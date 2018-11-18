@@ -1,69 +1,33 @@
-﻿.saud {
+﻿.saud{
     color: black;
     text-align: right;
 }
 
-body {
-    background-color: gray;
-}
-
-.titulo {
+.titulo{
     text-align: center;
-    background: url('../img/hotelF.jpg')no-repeat center top fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    height: 200px;
-    padding-top: 40px;
-    color: black;
-    text-shadow: white 0.2em 0.2em 0.10em;
-    margin-bottom: 20px;
+    padding-top: 20px;
 }
-
-#F {
+img a {
+    float: left;
+}
+#D, #R {
     table-layout: fixed;
     float: left;
     font-family: Arial, sans-serif;
+    padding-top: 50px;
+    padding-right: -50px;
+    padding-left: 300px;
+}
+.p {
+    padding: 5px 10px;
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
     margin-top: 10px;
-    padding-top: -150px;
-    margin-left: 10px;
-    padding-left: -900px;
+    position: relative;
 }
-
-.pF {
-    text-align: center;
-    position: absolute;
-    font-size: 30px;
-    font-weight: bold;
-    color: transparent;
-    padding-top: 10px;
-    margin-top: -200px;
-    display: table-cell;
-    float: left;
-    width: 300px;
-    padding-left: -100px;
-}
-
-.pR {
-    text-align: center;
-    position: absolute;
-    font-size: 30px;
-    font-weight: bold;
-    color: transparent;
-    padding-top: 10px;
-    margin-top: -200px;
-    display: table-cell;
-    float: left;
-    width: 300px;
-    padding-left: -90px;
-}
-
 a:hover {
-    color: white;
-    text-shadow: black 0.2em 0.2em 0.10em;
-}
-
-hr {
-    margin-top: 600px;
+    opacity: 0.6;
 }

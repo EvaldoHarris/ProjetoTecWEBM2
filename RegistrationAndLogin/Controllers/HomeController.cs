@@ -15,42 +15,12 @@ namespace RegistrationAndLogin.Controllers
             return View();
         }
         [Authorize]
-        public ActionResult Contato()
-        {
-            return View();
-        }
-        [Authorize]
         public ActionResult Florianopolis()
         {
             return View();
         }
         [Authorize]
         public ActionResult RiodeJaneiro()
-        {
-            return View();
-        }
-        [Authorize]
-        public ActionResult Carrinho()
-        {
-            return View();
-        }
-        [Authorize]
-        public ActionResult Voo()
-        {
-            return View();
-        }
-        [Authorize]
-        public ActionResult Pagamento()
-        {
-            return View();
-        }
-        [Authorize]
-        public ActionResult Compra()
-        {
-            return View();
-        }
-        [Authorize]
-        public ActionResult Hotel()
         {
             return View();
         }

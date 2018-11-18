@@ -160,10 +160,7 @@ namespace RegistrationAndLogin.Controllers
             return NewMethod1(login, dc);
         }
 
-        private static User NewMethod1(UserLogin login, MyDatabaseEntities dc)
-        {
-            return dc.Users.Where(a => a.EmailID == login.EmailID).FirstOrDefault();
-        }
+        private static User NewMethod1(UserLogin login, MyDatabaseEntities dc) => dc.Users.Where(a => a.EmailID == login.EmailID).FirstOrDefault();
 
         //Logout
         [Authorize]
@@ -193,7 +190,7 @@ namespace RegistrationAndLogin.Controllers
 
             var fromEmail = new MailAddress("evaldo.joaoj@gmail.com", "Projeto M2");
             var toEmail = new MailAddress(emailID);
-            var fromEmailPassword = "junior@junior2"; 
+            var fromEmailPassword = "junior@junior"; 
             string subject = "Sua conta foi criada com sucesso!";
 
             string body = "<br/><br/>Sua conta foi criada com sucesso. Por favor, clique no link abaixo para verificar sua conta" + 
