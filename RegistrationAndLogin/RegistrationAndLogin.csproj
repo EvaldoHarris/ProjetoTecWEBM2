@@ -148,6 +148,7 @@
     <Content Include="img\Hotel Atlantico Business Centro.jpg" />
     <Content Include="img\hotel-maria-do-mar-floripa.jpg" />
     <Content Include="img\hotelF.jpg" />
+    <Content Include="img\IconeHome.ico" />
     <Content Include="img\pontefloriano.jpg" />
     <Content Include="img\RECIFE.jpg" />
     <Content Include="img\Rio de Janeiro.jpg" />
@@ -192,6 +193,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="Models\Carrinho.cs">
       <DependentUpon>MyModel.tt</DependentUpon>
     </Compile>
@@ -208,6 +210,9 @@
     <Compile Include="Models\Hotel.cs">
       <DependentUpon>MyModel.tt</DependentUpon>
     </Compile>
+=======
+    <Compile Include="Models\Extended\User.cs" />
+>>>>>>> auxiliar
     <Compile Include="Models\MyModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -223,6 +228,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MyModel.edmx</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="Models\Pacote.cs">
       <DependentUpon>MyModel.tt</DependentUpon>
     </Compile>
@@ -235,6 +241,12 @@
     <Compile Include="Models\Voo.cs">
       <DependentUpon>MyModel.tt</DependentUpon>
     </Compile>
+=======
+    <Compile Include="Models\User.cs">
+      <DependentUpon>MyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserLogin.cs" />
+>>>>>>> auxiliar
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -259,6 +271,12 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Florianopolis.cshtml" />
     <Content Include="Views\Home\RiodeJaneiro.cshtml" />
+    <Content Include="Views\Home\Carrinho.cshtml" />
+    <Content Include="Views\Home\Voo.cshtml" />
+    <Content Include="Views\Home\Pagamento.cshtml" />
+    <Content Include="Views\Home\Compra.cshtml" />
+    <Content Include="Views\Home\Contato.cshtml" />
+    <Content Include="Views\Home\Hotel.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
