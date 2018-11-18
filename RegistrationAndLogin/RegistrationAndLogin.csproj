@@ -198,6 +198,7 @@
     <Compile Include="Models\Compra.cs">
       <DependentUpon>MyModel.tt</DependentUpon>
     </Compile>
+	<Compile Include="Models\UserLogin.cs" />
     <Compile Include="Models\Extended\Carrinho.cs" />
     <Compile Include="Models\Extended\Compra.cs" />
     <Compile Include="Models\Extended\Hotel.cs" />
