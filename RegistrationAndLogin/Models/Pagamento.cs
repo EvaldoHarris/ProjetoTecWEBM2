@@ -12,32 +12,16 @@ namespace RegistrationAndLogin.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class User
+    public partial class Pagamento
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public User()
+        public Pagamento()
         {
             this.Compras = new HashSet<Compra>();
         }
     
-        public int UserID { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string EmailID { get; set; }
-        public Nullable<System.DateTime> DateOfBirth { get; set; }
-        public string Password { get; set; }
-        public bool IsEmailVerified { get; set; }
-        public System.Guid ActivationCode { get; set; }
-        public string CPF { get; set; }
-        public string RG { get; set; }
-        public string Estado { get; set; }
-        public string Cidade { get; set; }
-        public string Renda { get; set; }
-        public string Dependentes { get; set; }
-        public string Telefone { get; set; }
-        public string CEP { get; set; }
-        public string Endereço { get; set; }
-        public string Numero { get; set; }
+        public int Id { get; set; }
+        public string Tipo { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Compra> Compras { get; set; }

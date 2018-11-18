@@ -187,12 +187,33 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HotelController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Crypto.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="Models\Extended\User.cs" />
+=======
+    <Compile Include="Models\Carrinho.cs">
+      <DependentUpon>MyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Compra.cs">
+      <DependentUpon>MyModel.tt</DependentUpon>
+    </Compile>
+	<Compile Include="Models\UserLogin.cs" />
+    <Compile Include="Models\Extended\Carrinho.cs" />
+    <Compile Include="Models\Extended\Compra.cs" />
+    <Compile Include="Models\Extended\Hotel.cs" />
+    <Compile Include="Models\Extended\Pacote.cs" />
+    <Compile Include="Models\Extended\Pagamento.cs" />
+    <Compile Include="Models\Extended\User.cs" />
+    <Compile Include="Models\Extended\Voo.cs" />
+    <Compile Include="Models\Hotel.cs">
+      <DependentUpon>MyModel.tt</DependentUpon>
+    </Compile>
+>>>>>>> eduardo
     <Compile Include="Models\MyModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -208,10 +229,25 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MyModel.edmx</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="Models\User.cs">
       <DependentUpon>MyModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UserLogin.cs" />
+=======
+    <Compile Include="Models\Pacote.cs">
+      <DependentUpon>MyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Pagamento.cs">
+      <DependentUpon>MyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User.cs">
+      <DependentUpon>MyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Voo.cs">
+      <DependentUpon>MyModel.tt</DependentUpon>
+    </Compile>
+>>>>>>> eduardo
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -249,7 +285,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\Hotel\" />
+  </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
