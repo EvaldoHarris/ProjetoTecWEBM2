@@ -193,9 +193,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-<<<<<<< HEAD
-    <Compile Include="Models\Extended\User.cs" />
-=======
     <Compile Include="Models\Carrinho.cs">
       <DependentUpon>MyModel.tt</DependentUpon>
     </Compile>
@@ -213,7 +210,6 @@
     <Compile Include="Models\Hotel.cs">
       <DependentUpon>MyModel.tt</DependentUpon>
     </Compile>
->>>>>>> eduardo
     <Compile Include="Models\MyModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -229,12 +225,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MyModel.edmx</DependentUpon>
     </Compile>
-<<<<<<< HEAD
-    <Compile Include="Models\User.cs">
-      <DependentUpon>MyModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\UserLogin.cs" />
-=======
     <Compile Include="Models\Pacote.cs">
       <DependentUpon>MyModel.tt</DependentUpon>
     </Compile>
@@ -247,7 +237,6 @@
     <Compile Include="Models\Voo.cs">
       <DependentUpon>MyModel.tt</DependentUpon>
     </Compile>
->>>>>>> eduardo
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
