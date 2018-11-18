@@ -192,10 +192,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Carrinho.cs" />
-    <Compile Include="Models\Compra.cs" />
     <Compile Include="Models\Extended\User.cs" />
-    <Compile Include="Models\Hotel.cs" />
     <Compile Include="Models\MyModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -211,13 +208,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MyModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\Pacote.cs" />
-    <Compile Include="Models\Pagamento.cs" />
     <Compile Include="Models\User.cs">
       <DependentUpon>MyModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UserLogin.cs" />
-    <Compile Include="Models\Voo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
