@@ -54,5 +54,15 @@ namespace RegistrationAndLogin.Controllers
         {
             return View();
         }
+        [Authorize]
+        public ActionResult Santiago()
+        {
+            return View();
+        }
+        [Authorize]
+        public ActionResult BuenosAires()
+        {
+            return View();
+        }
     }
 }

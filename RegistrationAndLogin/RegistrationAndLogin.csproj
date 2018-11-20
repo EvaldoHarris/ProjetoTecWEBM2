@@ -139,6 +139,10 @@
     <Content Include="Content\StylePag.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="img\B1.jpg" />
+    <Content Include="img\B2.jpg" />
+    <Content Include="img\B3.jpeg" />
+    <Content Include="img\buenosaires.jpg" />
     <Content Include="img\bWuREk.jpg" />
     <Content Include="img\Dicas-Rio-de-Janeiro-3.jpg" />
     <Content Include="img\f2.jpg" />
@@ -147,13 +151,16 @@
     <Content Include="img\fortaleza.jpg" />
     <Content Include="img\Hotel Atlantico Business Centro.jpg" />
     <Content Include="img\hotel-maria-do-mar-floripa.jpg" />
+    <Content Include="img\hotelcolonB.jpg" />
     <Content Include="img\hotelF.jpg" />
-    <Content Include="img\IconeHome.ico" />
+    <Content Include="img\panamericano-buenos-aires.jpg" />
     <Content Include="img\pontefloriano.jpg" />
     <Content Include="img\RECIFE.jpg" />
     <Content Include="img\Rio de Janeiro.jpg" />
     <Content Include="img\Rio Othon Palace.jpg" />
     <Content Include="img\rio-de-janeiro-city-tour.jpg" />
+    <Content Include="img\santiago.jpg" />
+    <Content Include="img\viagem001.jpg" />
     <Content Include="Layout.css" />
     <Content Include="Models\MyModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -267,6 +274,8 @@
     <Content Include="Views\Home\Compra.cshtml" />
     <Content Include="Views\Home\Contato.cshtml" />
     <Content Include="Views\Home\Hotel.cshtml" />
+    <Content Include="Views\Home\Santiago.cshtml" />
+    <Content Include="Views\Home\BuenosAires.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
