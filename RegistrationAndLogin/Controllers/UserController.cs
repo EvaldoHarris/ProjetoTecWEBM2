@@ -162,6 +162,11 @@ namespace RegistrationAndLogin.Controllers
 
         private static User NewMethod1(UserLogin login, MyDatabaseEntities dc)
         {
+            return NewMethod2(login, dc);
+        }
+
+        private static User NewMethod2(UserLogin login, MyDatabaseEntities dc)
+        {
             return dc.Users.Where(a => a.EmailID == login.EmailID).FirstOrDefault();
         }
 

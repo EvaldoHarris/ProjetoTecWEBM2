@@ -4,7 +4,11 @@
 }
 
 body {
-    background-color: gray;
+    background: url(../img/viagem001.jpg) no-repeat center top fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 .img {
@@ -142,4 +146,7 @@ a:hover {
 .hotel:hover {
     background-image: url(../img/hotelcolonB.jpg) ;
 
+}
+hr{
+    margin-top: -450px;
 }
