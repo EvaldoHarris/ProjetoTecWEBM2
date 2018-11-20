@@ -165,10 +165,7 @@ namespace RegistrationAndLogin.Controllers
             return NewMethod2(login, dc);
         }
 
-        private static User NewMethod2(UserLogin login, MyDatabaseEntities dc)
-        {
-            return dc.Users.Where(a => a.EmailID == login.EmailID).FirstOrDefault();
-        }
+        private static User NewMethod2(UserLogin login, MyDatabaseEntities dc) => dc.Users.Where(a => a.EmailID == login.EmailID).FirstOrDefault();
 
         //Logout
         [Authorize]
