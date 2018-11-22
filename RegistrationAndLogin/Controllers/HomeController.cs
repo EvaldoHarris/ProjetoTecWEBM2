@@ -64,5 +64,10 @@ namespace RegistrationAndLogin.Controllers
         {
             return View();
         }
+        [Authorize]
+        public ActionResult RevBuenosAires()
+        {
+            return View();
+        }
     }
 }

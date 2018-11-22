@@ -73,19 +73,16 @@ h2 {
     padding-left: 320px;
 }
 
-input {
+#botao {
     display: table-cell;
     border: solid black 1px;
     background-color: red;
-    border-radius: 3px;
+    border-radius: 5px;
     color: white;
     font-size: 20px;
     font-weight: bold;
+    margin-left: 50px;
     margin-top: 10px;
-    margin-left: 44px;
-    padding-right: 25px;
-    padding-left: 25px;
-    padding-top: 0px;
 }
 
 .preco {
@@ -140,7 +137,7 @@ a:hover {
     -webkit-text-stroke-width: 1px; /* largura da borda */
     -webkit-text-stroke-color: black; /* cor da borda */
 }
-#m {
+#m , #botao{
     -webkit-text-stroke-color: white; /* cor da borda */
 }
 .hotel:hover {

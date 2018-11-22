@@ -279,6 +279,7 @@
     <Content Include="Views\Home\Hotel.cshtml" />
     <Content Include="Views\Home\Santiago.cshtml" />
     <Content Include="Views\Home\BuenosAires.cshtml" />
+    <Content Include="Views\Home\RevBuenosAires.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
