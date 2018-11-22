@@ -73,7 +73,7 @@ h2 {
     padding-left: 320px;
 }
 
-#botao {
+input {
     display: table-cell;
     border: solid black 1px;
     background-color: red;
