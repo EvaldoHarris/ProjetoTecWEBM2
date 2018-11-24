@@ -25,5 +25,67 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Pagamentoes">
+      <EntityTypeMapping TypeName="MyDatabaseModel.Pagamento">
+        <MappingFragment StoreEntitySet="Pagamento">
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Compras">
+      <EntityTypeMapping TypeName="MyDatabaseModel.Compra">
+        <MappingFragment StoreEntitySet="Compra">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="PagamentoID" ColumnName="PagamentoID" />
+          <ScalarProperty Name="vezesPagamento" ColumnName="vezesPagamento" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Hotels">
+      <EntityTypeMapping TypeName="MyDatabaseModel.Hotel">
+        <MappingFragment StoreEntitySet="Hotel">
+          <ScalarProperty Name="Estrelas" ColumnName="Estrelas" />
+          <ScalarProperty Name="Local" ColumnName="Local" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Voos">
+      <EntityTypeMapping TypeName="MyDatabaseModel.Voo">
+        <MappingFragment StoreEntitySet="Voo">
+          <ScalarProperty Name="qtdPassageiros" ColumnName="qtdPassageiros" />
+          <ScalarProperty Name="Destino" ColumnName="Destino" />
+          <ScalarProperty Name="Origem" ColumnName="Origem" />
+          <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Carrinhoes">
+      <EntityTypeMapping TypeName="MyDatabaseModel.Carrinho">
+        <MappingFragment StoreEntitySet="Carrinho">
+          <ScalarProperty Name="Quantidade" ColumnName="Quantidade" />
+          <ScalarProperty Name="DataVolta" ColumnName="DataVolta" />
+          <ScalarProperty Name="DataIda" ColumnName="DataIda" />
+          <ScalarProperty Name="VooID" ColumnName="VooID" />
+          <ScalarProperty Name="HotelID" ColumnName="HotelID" />
+          <ScalarProperty Name="CompraID" ColumnName="CompraID" />
+          <ScalarProperty Name="PacoteID" ColumnName="PacoteID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pacotes">
+      <EntityTypeMapping TypeName="MyDatabaseModel.Pacote">
+        <MappingFragment StoreEntitySet="Pacote">
+          <ScalarProperty Name="Promocao" ColumnName="Promocao" />
+          <ScalarProperty Name="Preco" ColumnName="Preco" />
+          <ScalarProperty Name="Local" ColumnName="Local" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

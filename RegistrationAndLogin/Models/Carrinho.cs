@@ -16,11 +16,15 @@ namespace RegistrationAndLogin.Models
     {
         public int PacoteID { get; set; }
         public int CompraID { get; set; }
-        public System.DateTime DataIda { get; set; }
-        public System.DateTime DataVolta { get; set; }
-        public int Quantidade { get; set; }
+        public Nullable<int> HotelID { get; set; }
+        public Nullable<long> VooID { get; set; }
+        public Nullable<System.DateTime> DataIda { get; set; }
+        public Nullable<System.DateTime> DataVolta { get; set; }
+        public Nullable<int> Quantidade { get; set; }
     
         public virtual Compra Compra { get; set; }
+        public virtual Hotel Hotel { get; set; }
+        public virtual Voo Voo { get; set; }
         public virtual Pacote Pacote { get; set; }
     }
 }

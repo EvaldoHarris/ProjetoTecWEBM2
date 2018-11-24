@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace RegistrationAndLogin.Models
 {
-    [MetadataType(typeof(UserMetadata))]
+    [MetadataType(typeof(HotelMetadata))]
     public partial class Hotel
     {
     }
@@ -17,13 +17,9 @@ namespace RegistrationAndLogin.Models
         [Required(AllowEmptyStrings = false, ErrorMessage = "Nome é obrigatório")]
         public string Nome { get; set; }
 
-        [Display(Name = "Estado")]
+        [Display(Name = "Local")]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Estado é obrigatório")]
-        public string Estado { get; set; }
-
-        [Display(Name = "Cidade")]
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Cidade é obrigatória")]
-        public string Cidade { get; set; }
+        public string Local { get; set; }
 
         [Display(Name = "Estrelas")]
         [Range(1, 5)]

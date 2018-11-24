@@ -21,15 +21,10 @@ namespace RegistrationAndLogin.Models
         }
     
         public int Id { get; set; }
-        public string Origem { get; set; }
-        public string Destino { get; set; }
+        public string Local { get; set; }
         public decimal Preco { get; set; }
-        public int HotelID { get; set; }
-        public long VooID { get; set; }
         public bool Promocao { get; set; }
     
-        public virtual Hotel Hotel { get; set; }
-        public virtual Voo Voo { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Carrinho> Carrinhoes { get; set; }
     }

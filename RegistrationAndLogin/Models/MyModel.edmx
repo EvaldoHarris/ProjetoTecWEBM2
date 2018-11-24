@@ -12,9 +12,11 @@
           </Key>
           <Property Name="PacoteID" Type="int" Nullable="false" />
           <Property Name="CompraID" Type="int" Nullable="false" />
-          <Property Name="DataIda" Type="date" Nullable="false" />
-          <Property Name="DataVolta" Type="date" Nullable="false" />
-          <Property Name="Quantidade" Type="int" Nullable="false" />
+          <Property Name="HotelID" Type="int" />
+          <Property Name="VooID" Type="bigint" />
+          <Property Name="DataIda" Type="date" />
+          <Property Name="DataVolta" Type="date" />
+          <Property Name="Quantidade" Type="int" />
         </EntityType>
         <EntityType Name="Compra">
           <Key>
@@ -29,7 +31,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nome" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="Local" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Estrelas" Type="int" Nullable="false" />
@@ -38,12 +40,9 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="Origem" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Destino" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Local" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Preco" Type="numeric" Precision="18" Scale="2" Nullable="false" />
-          <Property Name="HotelID" Type="int" Nullable="false" />
-          <Property Name="VooID" Type="bigint" Nullable="false" />
           <Property Name="Promocao" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Pagamento">
@@ -80,7 +79,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="bigint" Nullable="false" />
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Empresa" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="Origem" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Destino" Type="varchar" MaxLength="50" Nullable="false" />
@@ -98,6 +97,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Carrinho_ToHotel">
+          <End Role="Hotel" Type="Self.Hotel" Multiplicity="0..1" />
+          <End Role="Carrinho" Type="Self.Carrinho" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hotel">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Carrinho">
+              <PropertyRef Name="HotelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Carrinho_ToPacote">
           <End Role="Pacote" Type="Self.Pacote" Multiplicity="1" />
           <End Role="Carrinho" Type="Self.Carrinho" Multiplicity="*" />
@@ -107,6 +118,18 @@
             </Principal>
             <Dependent Role="Carrinho">
               <PropertyRef Name="PacoteID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Carrinho_ToVoo">
+          <End Role="Voo" Type="Self.Voo" Multiplicity="0..1" />
+          <End Role="Carrinho" Type="Self.Carrinho" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Voo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Carrinho">
+              <PropertyRef Name="VooID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -134,30 +157,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Pacote_ToHotel">
-          <End Role="Hotel" Type="Self.Hotel" Multiplicity="1" />
-          <End Role="Pacote" Type="Self.Pacote" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Hotel">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Pacote">
-              <PropertyRef Name="HotelID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Pacote_ToVoo">
-          <End Role="Voo" Type="Self.Voo" Multiplicity="1" />
-          <End Role="Pacote" Type="Self.Pacote" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Voo">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Pacote">
-              <PropertyRef Name="VooID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="MyDatabaseModelStoreContainer">
           <EntitySet Name="Carrinho" EntityType="Self.Carrinho" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Compra" EntityType="Self.Compra" Schema="dbo" store:Type="Tables" />
@@ -170,8 +169,16 @@
             <End Role="Compra" EntitySet="Compra" />
             <End Role="Carrinho" EntitySet="Carrinho" />
           </AssociationSet>
+          <AssociationSet Name="FK_Carrinho_ToHotel" Association="Self.FK_Carrinho_ToHotel">
+            <End Role="Hotel" EntitySet="Hotel" />
+            <End Role="Carrinho" EntitySet="Carrinho" />
+          </AssociationSet>
           <AssociationSet Name="FK_Carrinho_ToPacote" Association="Self.FK_Carrinho_ToPacote">
             <End Role="Pacote" EntitySet="Pacote" />
+            <End Role="Carrinho" EntitySet="Carrinho" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Carrinho_ToVoo" Association="Self.FK_Carrinho_ToVoo">
+            <End Role="Voo" EntitySet="Voo" />
             <End Role="Carrinho" EntitySet="Carrinho" />
           </AssociationSet>
           <AssociationSet Name="FK_Compra_ToPagamento" Association="Self.FK_Compra_ToPagamento">
@@ -181,14 +188,6 @@
           <AssociationSet Name="FK_Compra_ToUsers" Association="Self.FK_Compra_ToUsers">
             <End Role="Users" EntitySet="Users" />
             <End Role="Compra" EntitySet="Compra" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Pacote_ToHotel" Association="Self.FK_Pacote_ToHotel">
-            <End Role="Hotel" EntitySet="Hotel" />
-            <End Role="Pacote" EntitySet="Pacote" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Pacote_ToVoo" Association="Self.FK_Pacote_ToVoo">
-            <End Role="Voo" EntitySet="Voo" />
-            <End Role="Pacote" EntitySet="Pacote" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -221,17 +220,6 @@
         </EntityType>
         <EntityContainer Name="MyDatabaseEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Users" EntityType="Self.User" />
-          <EntitySet Name="Hotels" EntityType="MyDatabaseModel.Hotel" />
-          <EntitySet Name="Voos" EntityType="MyDatabaseModel.Voo" />
-          <EntitySet Name="Pacotes" EntityType="MyDatabaseModel.Pacote" />
-          <AssociationSet Name="FK_Pacote_ToHotel" Association="MyDatabaseModel.FK_Pacote_ToHotel">
-            <End Role="Hotel" EntitySet="Hotels" />
-            <End Role="Pacote" EntitySet="Pacotes" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Pacote_ToVoo" Association="MyDatabaseModel.FK_Pacote_ToVoo">
-            <End Role="Voo" EntitySet="Voos" />
-            <End Role="Pacote" EntitySet="Pacotes" />
-          </AssociationSet>
           <EntitySet Name="Pagamentoes" EntityType="MyDatabaseModel.Pagamento" />
           <EntitySet Name="Compras" EntityType="MyDatabaseModel.Compra" />
           <AssociationSet Name="FK_Compra_ToPagamento" Association="MyDatabaseModel.FK_Compra_ToPagamento">
@@ -242,76 +230,27 @@
             <End Role="User" EntitySet="Users" />
             <End Role="Compra" EntitySet="Compras" />
           </AssociationSet>
+          <EntitySet Name="Hotels" EntityType="MyDatabaseModel.Hotel" />
+          <EntitySet Name="Voos" EntityType="MyDatabaseModel.Voo" />
           <EntitySet Name="Carrinhoes" EntityType="MyDatabaseModel.Carrinho" />
           <AssociationSet Name="FK_Carrinho_ToCompra" Association="MyDatabaseModel.FK_Carrinho_ToCompra">
             <End Role="Compra" EntitySet="Compras" />
             <End Role="Carrinho" EntitySet="Carrinhoes" />
           </AssociationSet>
+          <AssociationSet Name="FK_Carrinho_ToHotel" Association="MyDatabaseModel.FK_Carrinho_ToHotel">
+            <End Role="Hotel" EntitySet="Hotels" />
+            <End Role="Carrinho" EntitySet="Carrinhoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Carrinho_ToVoo" Association="MyDatabaseModel.FK_Carrinho_ToVoo">
+            <End Role="Voo" EntitySet="Voos" />
+            <End Role="Carrinho" EntitySet="Carrinhoes" />
+          </AssociationSet>
+          <EntitySet Name="Pacotes" EntityType="MyDatabaseModel.Pacote" />
           <AssociationSet Name="FK_Carrinho_ToPacote" Association="MyDatabaseModel.FK_Carrinho_ToPacote">
             <End Role="Pacote" EntitySet="Pacotes" />
             <End Role="Carrinho" EntitySet="Carrinhoes" />
           </AssociationSet>
           </EntityContainer>
-        <EntityType Name="Hotel">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="Nome" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Local" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Estrelas" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Pacotes" Relationship="MyDatabaseModel.FK_Pacote_ToHotel" FromRole="Hotel" ToRole="Pacote" />
-        </EntityType>
-        <EntityType Name="Voo">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int64" Nullable="false" />
-          <Property Name="Empresa" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="Origem" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Destino" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="qtdPassageiros" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Pacotes" Relationship="MyDatabaseModel.FK_Pacote_ToVoo" FromRole="Voo" ToRole="Pacote" />
-        </EntityType>
-        <EntityType Name="Pacote">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="Origem" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Destino" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Preco" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
-          <Property Name="HotelID" Type="Int32" Nullable="false" />
-          <Property Name="VooID" Type="Int64" Nullable="false" />
-          <Property Name="Promocao" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Hotel" Relationship="MyDatabaseModel.FK_Pacote_ToHotel" FromRole="Pacote" ToRole="Hotel" />
-          <NavigationProperty Name="Voo" Relationship="MyDatabaseModel.FK_Pacote_ToVoo" FromRole="Pacote" ToRole="Voo" />
-          <NavigationProperty Name="Carrinhoes" Relationship="MyDatabaseModel.FK_Carrinho_ToPacote" FromRole="Pacote" ToRole="Carrinho" />
-        </EntityType>
-        <Association Name="FK_Pacote_ToHotel">
-          <End Type="MyDatabaseModel.Hotel" Role="Hotel" Multiplicity="1" />
-          <End Type="MyDatabaseModel.Pacote" Role="Pacote" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Hotel">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Pacote">
-              <PropertyRef Name="HotelID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Pacote_ToVoo">
-          <End Type="MyDatabaseModel.Voo" Role="Voo" Multiplicity="1" />
-          <End Type="MyDatabaseModel.Pacote" Role="Pacote" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Voo">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Pacote">
-              <PropertyRef Name="VooID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="Pagamento">
           <Key>
             <PropertyRef Name="Id" />
@@ -356,6 +295,27 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Hotel">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Local" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Estrelas" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Carrinhoes" Relationship="MyDatabaseModel.FK_Carrinho_ToHotel" FromRole="Hotel" ToRole="Carrinho" />
+        </EntityType>
+        <EntityType Name="Voo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Empresa" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Origem" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Destino" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="qtdPassageiros" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Carrinhoes" Relationship="MyDatabaseModel.FK_Carrinho_ToVoo" FromRole="Voo" ToRole="Carrinho" />
+        </EntityType>
         <EntityType Name="Carrinho">
           <Key>
             <PropertyRef Name="PacoteID" />
@@ -363,10 +323,14 @@
           </Key>
           <Property Name="PacoteID" Type="Int32" Nullable="false" />
           <Property Name="CompraID" Type="Int32" Nullable="false" />
-          <Property Name="DataIda" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="DataVolta" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Quantidade" Type="Int32" Nullable="false" />
+          <Property Name="HotelID" Type="Int32" />
+          <Property Name="VooID" Type="Int64" />
+          <Property Name="DataIda" Type="DateTime" Precision="0" />
+          <Property Name="DataVolta" Type="DateTime" Precision="0" />
+          <Property Name="Quantidade" Type="Int32" />
           <NavigationProperty Name="Compra" Relationship="MyDatabaseModel.FK_Carrinho_ToCompra" FromRole="Carrinho" ToRole="Compra" />
+          <NavigationProperty Name="Hotel" Relationship="MyDatabaseModel.FK_Carrinho_ToHotel" FromRole="Carrinho" ToRole="Hotel" />
+          <NavigationProperty Name="Voo" Relationship="MyDatabaseModel.FK_Carrinho_ToVoo" FromRole="Carrinho" ToRole="Voo" />
           <NavigationProperty Name="Pacote" Relationship="MyDatabaseModel.FK_Carrinho_ToPacote" FromRole="Carrinho" ToRole="Pacote" />
         </EntityType>
         <Association Name="FK_Carrinho_ToCompra">
@@ -381,6 +345,40 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Carrinho_ToHotel">
+          <End Type="MyDatabaseModel.Hotel" Role="Hotel" Multiplicity="0..1" />
+          <End Type="MyDatabaseModel.Carrinho" Role="Carrinho" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hotel">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Carrinho">
+              <PropertyRef Name="HotelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Carrinho_ToVoo">
+          <End Type="MyDatabaseModel.Voo" Role="Voo" Multiplicity="0..1" />
+          <End Type="MyDatabaseModel.Carrinho" Role="Carrinho" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Voo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Carrinho">
+              <PropertyRef Name="VooID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Pacote">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Local" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Preco" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="Promocao" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Carrinhoes" Relationship="MyDatabaseModel.FK_Carrinho_ToPacote" FromRole="Pacote" ToRole="Carrinho" />
+        </EntityType>
         <Association Name="FK_Carrinho_ToPacote">
           <End Type="MyDatabaseModel.Pacote" Role="Pacote" Multiplicity="1" />
           <End Type="MyDatabaseModel.Carrinho" Role="Carrinho" Multiplicity="*" />
@@ -423,6 +421,24 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+          <EntitySetMapping Name="Pagamentoes">
+            <EntityTypeMapping TypeName="MyDatabaseModel.Pagamento">
+              <MappingFragment StoreEntitySet="Pagamento">
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Compras">
+            <EntityTypeMapping TypeName="MyDatabaseModel.Compra">
+              <MappingFragment StoreEntitySet="Compra">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="PagamentoID" ColumnName="PagamentoID" />
+                <ScalarProperty Name="vezesPagamento" ColumnName="vezesPagamento" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Hotels">
             <EntityTypeMapping TypeName="MyDatabaseModel.Hotel">
               <MappingFragment StoreEntitySet="Hotel">
@@ -444,45 +460,26 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Pacotes">
-            <EntityTypeMapping TypeName="MyDatabaseModel.Pacote">
-              <MappingFragment StoreEntitySet="Pacote">
-                <ScalarProperty Name="Promocao" ColumnName="Promocao" />
-                <ScalarProperty Name="VooID" ColumnName="VooID" />
-                <ScalarProperty Name="HotelID" ColumnName="HotelID" />
-                <ScalarProperty Name="Preco" ColumnName="Preco" />
-                <ScalarProperty Name="Destino" ColumnName="Destino" />
-                <ScalarProperty Name="Origem" ColumnName="Origem" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Pagamentoes">
-            <EntityTypeMapping TypeName="MyDatabaseModel.Pagamento">
-              <MappingFragment StoreEntitySet="Pagamento">
-                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Compras">
-            <EntityTypeMapping TypeName="MyDatabaseModel.Compra">
-              <MappingFragment StoreEntitySet="Compra">
-                <ScalarProperty Name="UserID" ColumnName="UserID" />
-                <ScalarProperty Name="PagamentoID" ColumnName="PagamentoID" />
-                <ScalarProperty Name="vezesPagamento" ColumnName="vezesPagamento" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Carrinhoes">
             <EntityTypeMapping TypeName="MyDatabaseModel.Carrinho">
               <MappingFragment StoreEntitySet="Carrinho">
                 <ScalarProperty Name="Quantidade" ColumnName="Quantidade" />
                 <ScalarProperty Name="DataVolta" ColumnName="DataVolta" />
                 <ScalarProperty Name="DataIda" ColumnName="DataIda" />
+                <ScalarProperty Name="VooID" ColumnName="VooID" />
+                <ScalarProperty Name="HotelID" ColumnName="HotelID" />
                 <ScalarProperty Name="CompraID" ColumnName="CompraID" />
                 <ScalarProperty Name="PacoteID" ColumnName="PacoteID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pacotes">
+            <EntityTypeMapping TypeName="MyDatabaseModel.Pacote">
+              <MappingFragment StoreEntitySet="Pacote">
+                <ScalarProperty Name="Promocao" ColumnName="Promocao" />
+                <ScalarProperty Name="Preco" ColumnName="Preco" />
+                <ScalarProperty Name="Local" ColumnName="Local" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -1,5 +1,52 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="MyDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Carrinho">
+    <Key>
+      <PropertyRef Name="PacoteID" />
+      <PropertyRef Name="CompraID" />
+    </Key>
+    <Property Name="PacoteID" Type="int" Nullable="false" />
+    <Property Name="CompraID" Type="int" Nullable="false" />
+    <Property Name="HotelID" Type="int" />
+    <Property Name="VooID" Type="bigint" />
+    <Property Name="DataIda" Type="date" />
+    <Property Name="DataVolta" Type="date" />
+    <Property Name="Quantidade" Type="int" />
+  </EntityType>
+  <EntityType Name="Compra">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="vezesPagamento" Type="int" Nullable="false" />
+    <Property Name="PagamentoID" Type="int" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Hotel">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Local" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Estrelas" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Pacote">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Local" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Preco" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Promocao" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Pagamento">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Tipo" Type="varchar" MaxLength="35" Nullable="false" />
+  </EntityType>
   <EntityType Name="Users">
     <Key>
       <PropertyRef Name="UserID" />
@@ -23,7 +70,119 @@
     <Property Name="Endereço" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Numero" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
+  <EntityType Name="Voo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Empresa" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Origem" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Destino" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="qtdPassageiros" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Carrinho_ToCompra">
+    <End Role="Compra" Type="Self.Compra" Multiplicity="1" />
+    <End Role="Carrinho" Type="Self.Carrinho" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Compra">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Carrinho">
+        <PropertyRef Name="CompraID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Carrinho_ToHotel">
+    <End Role="Hotel" Type="Self.Hotel" Multiplicity="0..1" />
+    <End Role="Carrinho" Type="Self.Carrinho" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hotel">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Carrinho">
+        <PropertyRef Name="HotelID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Carrinho_ToPacote">
+    <End Role="Pacote" Type="Self.Pacote" Multiplicity="1" />
+    <End Role="Carrinho" Type="Self.Carrinho" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pacote">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Carrinho">
+        <PropertyRef Name="PacoteID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Carrinho_ToVoo">
+    <End Role="Voo" Type="Self.Voo" Multiplicity="0..1" />
+    <End Role="Carrinho" Type="Self.Carrinho" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Voo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Carrinho">
+        <PropertyRef Name="VooID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Compra_ToPagamento">
+    <End Role="Pagamento" Type="Self.Pagamento" Multiplicity="1" />
+    <End Role="Compra" Type="Self.Compra" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pagamento">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Compra">
+        <PropertyRef Name="PagamentoID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Compra_ToUsers">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Compra" Type="Self.Compra" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Compra">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="MyDatabaseModelStoreContainer">
+    <EntitySet Name="Carrinho" EntityType="Self.Carrinho" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Compra" EntityType="Self.Compra" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Hotel" EntityType="Self.Hotel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Pacote" EntityType="Self.Pacote" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Pagamento" EntityType="Self.Pagamento" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Voo" EntityType="Self.Voo" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Carrinho_ToCompra" Association="Self.FK_Carrinho_ToCompra">
+      <End Role="Compra" EntitySet="Compra" />
+      <End Role="Carrinho" EntitySet="Carrinho" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Carrinho_ToHotel" Association="Self.FK_Carrinho_ToHotel">
+      <End Role="Hotel" EntitySet="Hotel" />
+      <End Role="Carrinho" EntitySet="Carrinho" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Carrinho_ToPacote" Association="Self.FK_Carrinho_ToPacote">
+      <End Role="Pacote" EntitySet="Pacote" />
+      <End Role="Carrinho" EntitySet="Carrinho" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Carrinho_ToVoo" Association="Self.FK_Carrinho_ToVoo">
+      <End Role="Voo" EntitySet="Voo" />
+      <End Role="Carrinho" EntitySet="Carrinho" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Compra_ToPagamento" Association="Self.FK_Compra_ToPagamento">
+      <End Role="Pagamento" EntitySet="Pagamento" />
+      <End Role="Compra" EntitySet="Compra" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Compra_ToUsers" Association="Self.FK_Compra_ToUsers">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Compra" EntitySet="Compra" />
+    </AssociationSet>
   </EntityContainer>
 </Schema>

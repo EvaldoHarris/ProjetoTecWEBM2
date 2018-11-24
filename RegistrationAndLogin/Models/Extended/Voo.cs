@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace RegistrationAndLogin.Models
 {
-    [MetadataType(typeof(UserMetadata))]
+    [MetadataType(typeof(VooMetadata))]
     public partial class Voo
     {
     }

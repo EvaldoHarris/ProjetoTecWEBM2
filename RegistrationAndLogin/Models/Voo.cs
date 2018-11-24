@@ -17,7 +17,7 @@ namespace RegistrationAndLogin.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Voo()
         {
-            this.Pacotes = new HashSet<Pacote>();
+            this.Carrinhoes = new HashSet<Carrinho>();
         }
     
         public long Id { get; set; }
@@ -27,6 +27,6 @@ namespace RegistrationAndLogin.Models
         public int qtdPassageiros { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Pacote> Pacotes { get; set; }
+        public virtual ICollection<Carrinho> Carrinhoes { get; set; }
     }
 }

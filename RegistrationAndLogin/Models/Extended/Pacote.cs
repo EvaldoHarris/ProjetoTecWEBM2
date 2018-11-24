@@ -6,32 +6,20 @@ using System.ComponentModel.DataAnnotations;
 
 namespace RegistrationAndLogin.Models
 {
-    [MetadataType(typeof(UserMetadata))]
+    [MetadataType(typeof(PacoteMetaData))]
     public partial class Pacote
     {
     }
 
     public class PacoteMetaData
     {
-        [Display(Name = "Origem")]
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Origem é obrigatória")]
-        public string Origem { get; set; }
-
-        [Display(Name = "Destino")]
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Destino é obrigatório")]
-        public string Destino { get; set; }
+        [Display(Name = "Local")]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Local é obrigatório")]
+        public string Local { get; set; }
 
         [Display(Name = "Preco")]
         [Required(ErrorMessage = "Preço é obrigatório")]
         public double Preco { get; set; }
-
-        [Display(Name = "Hotel_ID")]
-        [Required(ErrorMessage = "Adicionar um hotel é obrigatório")]
-        public int HotelID { get; set; }
-
-        [Display(Name = "Voo_ID")]
-        [Required(ErrorMessage = "Adicionar um vôo é obrigatório")]
-        public long VooID { get; set; }
 
         [Display(Name = "Promocao")]
         [Required(ErrorMessage = "É necessário indicar se está em promoção ou não")]
