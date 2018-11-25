@@ -6,18 +6,18 @@
     <edmx:Diagrams>
       <Diagram DiagramId="dbc999f5adef4c1fb76e01b4b695d264" Name="Diagram1" ZoomLevel="82">
         <EntityTypeShape EntityType="MyDatabaseModel.User" Width="1.5" PointX="1.75" PointY="2.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="MyDatabaseModel.Compra" Width="1.5" PointX="4.375" PointY="5.75" />
-        <AssociationConnector Association="MyDatabaseModel.FK_Compra_ToUsers" />
         <EntityTypeShape EntityType="MyDatabaseModel.Voo" Width="1.5" PointX="10.125" PointY="5.5" />
         <EntityTypeShape EntityType="MyDatabaseModel.Carrinho" Width="1.5" PointX="3.875" PointY="1.875" />
-        <AssociationConnector Association="MyDatabaseModel.FK_Carrinho_ToCompra" />
         <AssociationConnector Association="MyDatabaseModel.FK_Carrinho_ToVoo" />
         <EntityTypeShape EntityType="MyDatabaseModel.Pagamento" Width="1.5" PointX="1.5" PointY="7.5" />
-        <AssociationConnector Association="MyDatabaseModel.FK_Compra_ToPagamento" />
         <EntityTypeShape EntityType="MyDatabaseModel.Pacote" Width="1.5" PointX="7.125" PointY="5.75" />
         <AssociationConnector Association="MyDatabaseModel.FK_Carrinho_ToPacote" />
         <EntityTypeShape EntityType="MyDatabaseModel.Hotel" Width="1.5" PointX="8" PointY="1.375" />
         <AssociationConnector Association="MyDatabaseModel.FK_Carrinho_ToHotel" />
+        <EntityTypeShape EntityType="MyDatabaseModel.Compra" Width="1.5" PointX="4" PointY="6.5" />
+        <AssociationConnector Association="MyDatabaseModel.FK_Carrinho_ToCompra" />
+        <AssociationConnector Association="MyDatabaseModel.FK_Compra_ToPagamento" />
+        <AssociationConnector Association="MyDatabaseModel.FK_Compra_ToUsers" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

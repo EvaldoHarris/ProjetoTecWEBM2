@@ -7,12 +7,15 @@ using RegistrationAndLogin.Models;
 using System.Net.Mail;
 using System.Net;
 using System.Web.Security;
+using System.Data.Entity.Validation;
 
 namespace RegistrationAndLogin.Controllers
 {
     public class UserController : Controller
     {
-       //Registration Action
+        Compra c;
+
+        //Registration Action
         [HttpGet]
         public ActionResult Registration()
         {
@@ -123,6 +126,13 @@ namespace RegistrationAndLogin.Controllers
 
                     if (string.Compare(Crypto.Hash(login.Password), v.Password) == 0)
                     {
+                        c = new Compra();
+                        c.UserID = v.UserID;
+                        c.User = v;
+                        v.Compras.Add(c);
+                        dc.Compras.Add(c);
+                        dc.SaveChanges();
+
                         int timeout = login.RememberMe ? 525600 : 20;
                         var ticket = new FormsAuthenticationTicket(login.EmailID, login.RememberMe, timeout);
                         string encrypted = FormsAuthentication.Encrypt(ticket);
@@ -130,7 +140,6 @@ namespace RegistrationAndLogin.Controllers
                         cookie.Expires = DateTime.Now.AddMinutes(timeout);
                         cookie.HttpOnly = true;
                         Response.Cookies.Add(cookie);
-
 
                         if (Url.IsLocalUrl(ReturnUrl))
                         {
@@ -172,6 +181,15 @@ namespace RegistrationAndLogin.Controllers
         [HttpPost]
         public ActionResult Logout()
         {
+            using (MyDatabaseEntities dc = new MyDatabaseEntities())
+            {
+                for (int i = 0; i < dc.Carrinhoes.ToList().Count; i++)
+                    dc.Carrinhoes.Remove(dc.Carrinhoes.ToList()[i]);
+
+                for(int j = 0; j < dc.Compras.ToList().Count; j++)
+                    dc.Compras.Remove(dc.Compras.ToList()[j]);
+                dc.SaveChanges();
+            }
             FormsAuthentication.SignOut();
             return RedirectToAction("Login", "User");
         }

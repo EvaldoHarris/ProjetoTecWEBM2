@@ -117,5 +117,39 @@ namespace RegistrationAndLogin.Controllers
                 return RedirectToAction(nameof(Index));
             }
         }
+
+        public ActionResult AddCarrinho(int? id)
+        {
+            if (id == null)
+                return HttpNotFound();
+
+            using (MyDatabaseEntities dc = new MyDatabaseEntities())
+            {
+                var pacote = dc.Pacotes.FirstOrDefault(h => h.Id == id);
+
+                Carrinho c = new Carrinho();
+                c.PacoteID = pacote.Id;
+                c.Pacote = pacote;
+                c.CompraID = dc.Compras.ToList()[0].Id;
+                c.Compra = dc.Compras.ToList()[0];
+                dc.Carrinhoes.Add(c);
+                dc.SaveChanges();
+
+                return View(dc.Carrinhoes.ToList());
+            }
+        }
+
+        //perguntar qual é o erro
+        public ActionResult DetailsCarrinho(int? CompraID, int? PacoteID)
+        {
+            using (MyDatabaseEntities dc = new MyDatabaseEntities())
+            {
+                var carrinho = dc.Carrinhoes.Find(CompraID, PacoteID);
+                if(carrinho == null)
+                    return RedirectToAction(nameof(AddCarrinho));
+
+                return View(carrinho);
+            }
+        }
     }
 }

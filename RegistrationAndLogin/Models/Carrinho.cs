@@ -22,9 +22,9 @@ namespace RegistrationAndLogin.Models
         public Nullable<System.DateTime> DataVolta { get; set; }
         public Nullable<int> Quantidade { get; set; }
     
-        public virtual Compra Compra { get; set; }
         public virtual Voo Voo { get; set; }
         public virtual Pacote Pacote { get; set; }
         public virtual Hotel Hotel { get; set; }
+        public virtual Compra Compra { get; set; }
     }
 }

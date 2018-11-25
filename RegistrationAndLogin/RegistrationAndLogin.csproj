@@ -198,6 +198,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CompraController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HotelController.cs" />
     <Compile Include="Controllers\PacoteController.cs" />
@@ -295,7 +296,6 @@
     <Content Include="Views\Pagamento\Details.cshtml" />
     <Content Include="Views\Pagamento\Edit.cshtml" />
     <Content Include="Views\Pagamento\Delete.cshtml" />
-    <Content Include="Views\Pacote\Index.cshtml" />
     <Content Include="Views\Pacote\Create.cshtml" />
     <Content Include="Views\Pacote\Details.cshtml" />
     <Content Include="Views\Pacote\Delete.cshtml" />
@@ -305,6 +305,11 @@
     <Content Include="Views\Hotel\Details.cshtml" />
     <Content Include="Views\Hotel\Edit.cshtml" />
     <Content Include="Views\Hotel\Delete.cshtml" />
+    <Content Include="Views\Compra\Index.cshtml" />
+    <Content Include="Views\Compra\Create.cshtml" />
+    <Content Include="Views\Pacote\Index.cshtml" />
+    <Content Include="Views\Pacote\AddCarrinho.cshtml" />
+    <Content Include="Views\Pacote\DetailsCarrinho.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

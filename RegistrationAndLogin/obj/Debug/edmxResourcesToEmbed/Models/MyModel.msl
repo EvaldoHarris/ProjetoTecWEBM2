@@ -25,16 +25,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Compras">
-      <EntityTypeMapping TypeName="MyDatabaseModel.Compra">
-        <MappingFragment StoreEntitySet="Compra">
-          <ScalarProperty Name="UserID" ColumnName="UserID" />
-          <ScalarProperty Name="PagamentoID" ColumnName="PagamentoID" />
-          <ScalarProperty Name="vezesPagamento" ColumnName="vezesPagamento" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Voos">
       <EntityTypeMapping TypeName="MyDatabaseModel.Voo">
         <MappingFragment StoreEntitySet="Voo">
@@ -88,6 +78,16 @@
           <ScalarProperty Name="Descricao" ColumnName="Descricao" />
           <ScalarProperty Name="Local" ColumnName="Local" />
           <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Compras">
+      <EntityTypeMapping TypeName="MyDatabaseModel.Compra">
+        <MappingFragment StoreEntitySet="Compra">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="PagamentoID" ColumnName="PagamentoID" />
+          <ScalarProperty Name="vezesPagamento" ColumnName="vezesPagamento" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>

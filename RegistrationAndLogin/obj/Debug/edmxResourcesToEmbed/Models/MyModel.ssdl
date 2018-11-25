@@ -17,10 +17,10 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
-    <Property Name="vezesPagamento" Type="int" Nullable="false" />
-    <Property Name="PagamentoID" Type="int" Nullable="false" />
-    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="vezesPagamento" Type="int" />
+    <Property Name="PagamentoID" Type="int" />
+    <Property Name="UserID" Type="int" />
   </EntityType>
   <EntityType Name="Hotel">
     <Key>
@@ -134,7 +134,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Compra_ToPagamento">
-    <End Role="Pagamento" Type="Self.Pagamento" Multiplicity="1" />
+    <End Role="Pagamento" Type="Self.Pagamento" Multiplicity="0..1" />
     <End Role="Compra" Type="Self.Compra" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Pagamento">
@@ -146,7 +146,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Compra_ToUsers">
-    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
     <End Role="Compra" Type="Self.Compra" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Users">

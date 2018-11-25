@@ -26,26 +26,13 @@
   </EntityType>
   <EntityContainer Name="MyDatabaseEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Users" EntityType="Self.User" />
-    <EntitySet Name="Compras" EntityType="MyDatabaseModel.Compra" />
-    <AssociationSet Name="FK_Compra_ToUsers" Association="MyDatabaseModel.FK_Compra_ToUsers">
-      <End Role="User" EntitySet="Users" />
-      <End Role="Compra" EntitySet="Compras" />
-    </AssociationSet>
     <EntitySet Name="Voos" EntityType="MyDatabaseModel.Voo" />
     <EntitySet Name="Carrinhoes" EntityType="MyDatabaseModel.Carrinho" />
-    <AssociationSet Name="FK_Carrinho_ToCompra" Association="MyDatabaseModel.FK_Carrinho_ToCompra">
-      <End Role="Compra" EntitySet="Compras" />
-      <End Role="Carrinho" EntitySet="Carrinhoes" />
-    </AssociationSet>
     <AssociationSet Name="FK_Carrinho_ToVoo" Association="MyDatabaseModel.FK_Carrinho_ToVoo">
       <End Role="Voo" EntitySet="Voos" />
       <End Role="Carrinho" EntitySet="Carrinhoes" />
     </AssociationSet>
     <EntitySet Name="Pagamentoes" EntityType="MyDatabaseModel.Pagamento" />
-    <AssociationSet Name="FK_Compra_ToPagamento" Association="MyDatabaseModel.FK_Compra_ToPagamento">
-      <End Role="Pagamento" EntitySet="Pagamentoes" />
-      <End Role="Compra" EntitySet="Compras" />
-    </AssociationSet>
     <EntitySet Name="Pacotes" EntityType="MyDatabaseModel.Pacote" />
     <AssociationSet Name="FK_Carrinho_ToPacote" Association="MyDatabaseModel.FK_Carrinho_ToPacote">
       <End Role="Pacote" EntitySet="Pacotes" />
@@ -56,31 +43,20 @@
       <End Role="Hotel" EntitySet="Hotels" />
       <End Role="Carrinho" EntitySet="Carrinhoes" />
     </AssociationSet>
+    <EntitySet Name="Compras" EntityType="MyDatabaseModel.Compra" />
+    <AssociationSet Name="FK_Carrinho_ToCompra" Association="MyDatabaseModel.FK_Carrinho_ToCompra">
+      <End Role="Compra" EntitySet="Compras" />
+      <End Role="Carrinho" EntitySet="Carrinhoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Compra_ToPagamento" Association="MyDatabaseModel.FK_Compra_ToPagamento">
+      <End Role="Pagamento" EntitySet="Pagamentoes" />
+      <End Role="Compra" EntitySet="Compras" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Compra_ToUsers" Association="MyDatabaseModel.FK_Compra_ToUsers">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Compra" EntitySet="Compras" />
+    </AssociationSet>
   </EntityContainer>
-  <EntityType Name="Compra">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" />
-    <Property Name="vezesPagamento" Type="Int32" Nullable="false" />
-    <Property Name="PagamentoID" Type="Int32" Nullable="false" />
-    <Property Name="UserID" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="User" Relationship="MyDatabaseModel.FK_Compra_ToUsers" FromRole="Compra" ToRole="User" />
-    <NavigationProperty Name="Carrinhoes" Relationship="MyDatabaseModel.FK_Carrinho_ToCompra" FromRole="Compra" ToRole="Carrinho" />
-    <NavigationProperty Name="Pagamento" Relationship="MyDatabaseModel.FK_Compra_ToPagamento" FromRole="Compra" ToRole="Pagamento" />
-  </EntityType>
-  <Association Name="FK_Compra_ToUsers">
-    <End Type="MyDatabaseModel.User" Role="User" Multiplicity="1" />
-    <End Type="MyDatabaseModel.Compra" Role="Compra" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="UserID" />
-      </Principal>
-      <Dependent Role="Compra">
-        <PropertyRef Name="UserID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <EntityType Name="Voo">
     <Key>
       <PropertyRef Name="Id" />
@@ -104,23 +80,11 @@
     <Property Name="DataIda" Type="DateTime" Precision="0" />
     <Property Name="DataVolta" Type="DateTime" Precision="0" />
     <Property Name="Quantidade" Type="Int32" />
-    <NavigationProperty Name="Compra" Relationship="MyDatabaseModel.FK_Carrinho_ToCompra" FromRole="Carrinho" ToRole="Compra" />
     <NavigationProperty Name="Voo" Relationship="MyDatabaseModel.FK_Carrinho_ToVoo" FromRole="Carrinho" ToRole="Voo" />
     <NavigationProperty Name="Pacote" Relationship="MyDatabaseModel.FK_Carrinho_ToPacote" FromRole="Carrinho" ToRole="Pacote" />
     <NavigationProperty Name="Hotel" Relationship="MyDatabaseModel.FK_Carrinho_ToHotel" FromRole="Carrinho" ToRole="Hotel" />
+    <NavigationProperty Name="Compra" Relationship="MyDatabaseModel.FK_Carrinho_ToCompra" FromRole="Carrinho" ToRole="Compra" />
   </EntityType>
-  <Association Name="FK_Carrinho_ToCompra">
-    <End Type="MyDatabaseModel.Compra" Role="Compra" Multiplicity="1" />
-    <End Type="MyDatabaseModel.Carrinho" Role="Carrinho" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Compra">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Carrinho">
-        <PropertyRef Name="CompraID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_Carrinho_ToVoo">
     <End Type="MyDatabaseModel.Voo" Role="Voo" Multiplicity="0..1" />
     <End Type="MyDatabaseModel.Carrinho" Role="Carrinho" Multiplicity="*" />
@@ -141,18 +105,6 @@
     <Property Name="Tipo" Type="String" Nullable="false" MaxLength="35" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Compras" Relationship="MyDatabaseModel.FK_Compra_ToPagamento" FromRole="Pagamento" ToRole="Compra" />
   </EntityType>
-  <Association Name="FK_Compra_ToPagamento">
-    <End Type="MyDatabaseModel.Pagamento" Role="Pagamento" Multiplicity="1" />
-    <End Type="MyDatabaseModel.Compra" Role="Compra" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Pagamento">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Compra">
-        <PropertyRef Name="PagamentoID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <EntityType Name="Pacote">
     <Key>
       <PropertyRef Name="Id" />
@@ -199,6 +151,54 @@
       </Principal>
       <Dependent Role="Carrinho">
         <PropertyRef Name="HotelID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Compra">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="vezesPagamento" Type="Int32" />
+    <Property Name="PagamentoID" Type="Int32" />
+    <Property Name="UserID" Type="Int32" />
+    <NavigationProperty Name="Carrinhoes" Relationship="MyDatabaseModel.FK_Carrinho_ToCompra" FromRole="Compra" ToRole="Carrinho" />
+    <NavigationProperty Name="Pagamento" Relationship="MyDatabaseModel.FK_Compra_ToPagamento" FromRole="Compra" ToRole="Pagamento" />
+    <NavigationProperty Name="User" Relationship="MyDatabaseModel.FK_Compra_ToUsers" FromRole="Compra" ToRole="User" />
+  </EntityType>
+  <Association Name="FK_Carrinho_ToCompra">
+    <End Type="MyDatabaseModel.Compra" Role="Compra" Multiplicity="1" />
+    <End Type="MyDatabaseModel.Carrinho" Role="Carrinho" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Compra">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Carrinho">
+        <PropertyRef Name="CompraID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Compra_ToPagamento">
+    <End Type="MyDatabaseModel.Pagamento" Role="Pagamento" Multiplicity="0..1" />
+    <End Type="MyDatabaseModel.Compra" Role="Compra" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pagamento">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Compra">
+        <PropertyRef Name="PagamentoID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Compra_ToUsers">
+    <End Type="MyDatabaseModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="MyDatabaseModel.Compra" Role="Compra" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Compra">
+        <PropertyRef Name="UserID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

@@ -21,13 +21,13 @@ namespace RegistrationAndLogin.Models
         }
     
         public int Id { get; set; }
-        public int vezesPagamento { get; set; }
-        public int PagamentoID { get; set; }
-        public int UserID { get; set; }
+        public Nullable<int> vezesPagamento { get; set; }
+        public Nullable<int> PagamentoID { get; set; }
+        public Nullable<int> UserID { get; set; }
     
-        public virtual User User { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Carrinho> Carrinhoes { get; set; }
         public virtual Pagamento Pagamento { get; set; }
+        public virtual User User { get; set; }
     }
 }
