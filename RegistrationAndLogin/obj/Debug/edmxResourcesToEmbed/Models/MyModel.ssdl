@@ -29,6 +29,9 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Nome" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="Local" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Descricao" Type="varchar(max)" />
+    <Property Name="Diaria" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Imagem" Type="varchar" MaxLength="200" Nullable="false" />
     <Property Name="Estrelas" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Pacote">
@@ -38,13 +41,15 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Local" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Preco" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Descricao" Type="varchar(max)" />
+    <Property Name="Imagem" Type="varchar" MaxLength="200" Nullable="false" />
     <Property Name="Promocao" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="Pagamento">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Tipo" Type="varchar" MaxLength="35" Nullable="false" />
   </EntityType>
   <EntityType Name="Users">

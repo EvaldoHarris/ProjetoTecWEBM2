@@ -79,6 +79,9 @@ namespace RegistrationAndLogin.Controllers
             {
                 dc.Hotels.Find(hotel.Id).Nome = hotel.Nome;
                 dc.Hotels.Find(hotel.Id).Local = hotel.Local;
+                dc.Hotels.Find(hotel.Id).Descricao = hotel.Descricao;
+                dc.Hotels.Find(hotel.Id).Diaria = hotel.Diaria;
+                dc.Hotels.Find(hotel.Id).Imagem = hotel.Imagem;
                 dc.Hotels.Find(hotel.Id).Estrelas = hotel.Estrelas;
                 dc.SaveChanges();
             }

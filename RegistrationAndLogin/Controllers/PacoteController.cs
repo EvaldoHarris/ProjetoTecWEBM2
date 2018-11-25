@@ -79,6 +79,8 @@ namespace RegistrationAndLogin.Controllers
             {
                 dc.Pacotes.Find(pacote.Id).Local = pacote.Local;
                 dc.Pacotes.Find(pacote.Id).Preco = pacote.Preco;
+                dc.Pacotes.Find(pacote.Id).Descricao = pacote.Descricao;
+                dc.Pacotes.Find(pacote.Id).Imagem = pacote.Imagem;
                 dc.Pacotes.Find(pacote.Id).Promocao = pacote.Promocao;
                 dc.SaveChanges();
             }

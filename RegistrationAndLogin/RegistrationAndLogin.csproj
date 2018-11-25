@@ -201,6 +201,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HotelController.cs" />
     <Compile Include="Controllers\PacoteController.cs" />
+    <Compile Include="Controllers\PagamentoController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\VooController.cs" />
     <Compile Include="Crypto.cs" />
@@ -284,21 +285,26 @@
     <Content Include="Views\Home\Santiago.cshtml" />
     <Content Include="Views\Home\BuenosAires.cshtml" />
     <Content Include="Views\Home\RevBuenosAires.cshtml" />
-    <Content Include="Views\Hotel\Create.cshtml" />
-    <Content Include="Views\Hotel\Index.cshtml" />
-    <Content Include="Views\Hotel\Details.cshtml" />
-    <Content Include="Views\Hotel\Edit.cshtml" />
-    <Content Include="Views\Hotel\Delete.cshtml" />
     <Content Include="Views\Voo\Index.cshtml" />
     <Content Include="Views\Voo\Create.cshtml" />
     <Content Include="Views\Voo\Details.cshtml" />
     <Content Include="Views\Voo\Edit.cshtml" />
     <Content Include="Views\Voo\Delete.cshtml" />
+    <Content Include="Views\Pagamento\Index.cshtml" />
+    <Content Include="Views\Pagamento\Create.cshtml" />
+    <Content Include="Views\Pagamento\Details.cshtml" />
+    <Content Include="Views\Pagamento\Edit.cshtml" />
+    <Content Include="Views\Pagamento\Delete.cshtml" />
     <Content Include="Views\Pacote\Index.cshtml" />
     <Content Include="Views\Pacote\Create.cshtml" />
     <Content Include="Views\Pacote\Details.cshtml" />
-    <Content Include="Views\Pacote\Edit.cshtml" />
     <Content Include="Views\Pacote\Delete.cshtml" />
+    <Content Include="Views\Pacote\Edit.cshtml" />
+    <Content Include="Views\Hotel\Index.cshtml" />
+    <Content Include="Views\Hotel\Create.cshtml" />
+    <Content Include="Views\Hotel\Details.cshtml" />
+    <Content Include="Views\Hotel\Edit.cshtml" />
+    <Content Include="Views\Hotel\Delete.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

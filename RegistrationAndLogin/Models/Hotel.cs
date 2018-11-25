@@ -23,6 +23,9 @@ namespace RegistrationAndLogin.Models
         public int Id { get; set; }
         public string Nome { get; set; }
         public string Local { get; set; }
+        public string Descricao { get; set; }
+        public decimal Diaria { get; set; }
+        public string Imagem { get; set; }
         public int Estrelas { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
