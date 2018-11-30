@@ -1,0 +1,57 @@
+﻿@model IEnumerable<RegistrationAndLogin.Models.Hotel>
+
+<h2>AddHotel</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Local)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Diaria)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Imagem)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Estrelas)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Local)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descricao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Diaria)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Imagem)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Estrelas)
+        </td>
+        <td>
+            @Html.ActionLink("Adicionar", "ConfirmAddHotel", new { id=item.Id }) |
+        </td>
+    </tr>
+}
+
+</table>

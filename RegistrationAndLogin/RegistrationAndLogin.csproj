@@ -198,6 +198,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CarrinhoController.cs" />
     <Compile Include="Controllers\CompraController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HotelController.cs" />
@@ -308,8 +309,9 @@
     <Content Include="Views\Compra\Index.cshtml" />
     <Content Include="Views\Compra\Create.cshtml" />
     <Content Include="Views\Pacote\Index.cshtml" />
-    <Content Include="Views\Pacote\AddCarrinho.cshtml" />
-    <Content Include="Views\Pacote\DetailsCarrinho.cshtml" />
+    <Content Include="Views\Carrinho\AddHotel.cshtml" />
+    <Content Include="Views\Carrinho\AddVoo.cshtml" />
+    <Content Include="Views\Carrinho\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

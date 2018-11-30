@@ -15,12 +15,18 @@ namespace RegistrationAndLogin.Models
             [Required(ErrorMessage = "Pacote é obrigatório")]
             public int PacoteID { get; set; }
 
+            [Display(Name = "Local")]
+            public string Local { get; set; }
+
             [Display(Name = "Compra")]
             [Required(ErrorMessage = "É necessário estar em uma compra")]
             public int CompraID { get; set; }
 
             [Display(Name = "Hotel")]
             public int HotelID { get; set; }
+
+            [Display(Name = "Hotel_Nome")]
+            public string HotelNome { get; set; }
 
             [Display(Name = "Voo")]
             public long VooID { get; set; }
@@ -33,6 +39,9 @@ namespace RegistrationAndLogin.Models
 
             [Display(Name = "Data_Volta")]
             public DateTime DataVolta { get; set; }
+
+            [Display(Name = "Dias")]
+            public int Dias { get; set; }
 
             [Display(Name = "Pacote")]
             public virtual Pacote Pacote { get; set; }

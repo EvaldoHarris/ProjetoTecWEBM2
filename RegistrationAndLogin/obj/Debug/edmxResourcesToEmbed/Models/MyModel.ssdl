@@ -6,12 +6,15 @@
       <PropertyRef Name="CompraID" />
     </Key>
     <Property Name="PacoteID" Type="int" Nullable="false" />
+    <Property Name="Local" Type="varchar" MaxLength="100" />
     <Property Name="CompraID" Type="int" Nullable="false" />
     <Property Name="HotelID" Type="int" />
+    <Property Name="HotelNome" Type="varchar" MaxLength="200" />
     <Property Name="VooID" Type="bigint" />
     <Property Name="DataIda" Type="date" />
     <Property Name="DataVolta" Type="date" />
     <Property Name="Quantidade" Type="int" />
+    <Property Name="Dias" Type="int" />
   </EntityType>
   <EntityType Name="Compra">
     <Key>

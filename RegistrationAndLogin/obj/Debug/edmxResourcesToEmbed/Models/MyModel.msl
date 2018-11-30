@@ -36,19 +36,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Carrinhoes">
-      <EntityTypeMapping TypeName="MyDatabaseModel.Carrinho">
-        <MappingFragment StoreEntitySet="Carrinho">
-          <ScalarProperty Name="Quantidade" ColumnName="Quantidade" />
-          <ScalarProperty Name="DataVolta" ColumnName="DataVolta" />
-          <ScalarProperty Name="DataIda" ColumnName="DataIda" />
-          <ScalarProperty Name="VooID" ColumnName="VooID" />
-          <ScalarProperty Name="HotelID" ColumnName="HotelID" />
-          <ScalarProperty Name="CompraID" ColumnName="CompraID" />
-          <ScalarProperty Name="PacoteID" ColumnName="PacoteID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Pagamentoes">
       <EntityTypeMapping TypeName="MyDatabaseModel.Pagamento">
         <MappingFragment StoreEntitySet="Pagamento">
@@ -89,6 +76,22 @@
           <ScalarProperty Name="PagamentoID" ColumnName="PagamentoID" />
           <ScalarProperty Name="vezesPagamento" ColumnName="vezesPagamento" />
           <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Carrinhoes">
+      <EntityTypeMapping TypeName="MyDatabaseModel.Carrinho">
+        <MappingFragment StoreEntitySet="Carrinho">
+          <ScalarProperty Name="Dias" ColumnName="Dias" />
+          <ScalarProperty Name="HotelNome" ColumnName="HotelNome" />
+          <ScalarProperty Name="Quantidade" ColumnName="Quantidade" />
+          <ScalarProperty Name="DataVolta" ColumnName="DataVolta" />
+          <ScalarProperty Name="DataIda" ColumnName="DataIda" />
+          <ScalarProperty Name="VooID" ColumnName="VooID" />
+          <ScalarProperty Name="HotelID" ColumnName="HotelID" />
+          <ScalarProperty Name="CompraID" ColumnName="CompraID" />
+          <ScalarProperty Name="Local" ColumnName="Local" />
+          <ScalarProperty Name="PacoteID" ColumnName="PacoteID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
