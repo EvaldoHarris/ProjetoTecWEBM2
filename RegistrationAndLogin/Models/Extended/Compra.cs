@@ -20,9 +20,14 @@ namespace RegistrationAndLogin.Models
         [Display(Name = "Pagamento_ID")]
         public int PagamentoID { get; set; }
 
+        [Display(Name = "Pagamento")]
+        public string TipoPagamento { get; set; }
+
         [Display(Name = "User_ID")]
         public int UserID { get; set; }
 
+        [Display(Name = "Total")]
+        public decimal PrecoTotal { get; set; }
         //[Display(Name = "InsiraEmail")]
         //[Required(AllowEmptyStrings = false, ErrorMessage = "Email é obrigatório")]
         //public string EmailConfirmar { get; set; }

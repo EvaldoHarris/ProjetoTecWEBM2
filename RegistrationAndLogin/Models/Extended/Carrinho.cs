@@ -31,13 +31,17 @@ namespace RegistrationAndLogin.Models
             [Display(Name = "Voo")]
             public long VooID { get; set; }
 
-            [Display(Name = "Quantidade")]
+            [Display(Name = "Pessoas")]
             public int Quantidade { get; set; }
 
             [Display(Name = "Data_Ida")]
+            [DataType(DataType.Date)]
+            [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
             public DateTime DataIda { get; set; }
 
             [Display(Name = "Data_Volta")]
+            [DataType(DataType.Date)]
+            [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
             public DateTime DataVolta { get; set; }
 
             [Display(Name = "Dias")]

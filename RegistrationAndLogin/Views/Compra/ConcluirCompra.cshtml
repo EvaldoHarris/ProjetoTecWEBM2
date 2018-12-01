@@ -1,0 +1,46 @@
+﻿@model RegistrationAndLogin.Models.Compra
+
+@{
+    ViewBag.Title = "ConcluirCompra";
+}
+
+<h2>Concluir Compra</h2>
+
+<div>
+    <h4>Compra</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TipoPagamento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipoPagamento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrecoTotal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrecoTotal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.vezesPagamento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.vezesPagamento)
+        </dd>
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Concluir" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

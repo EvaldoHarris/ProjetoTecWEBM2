@@ -26,8 +26,10 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PrecoTotal" Type="numeric" Precision="18" Scale="2" />
           <Property Name="vezesPagamento" Type="int" />
           <Property Name="PagamentoID" Type="int" />
+          <Property Name="TipoPagamento" Type="varchar" MaxLength="50" />
           <Property Name="UserID" Type="int" />
         </EntityType>
         <EntityType Name="Hotel">
@@ -314,6 +316,8 @@
           <NavigationProperty Name="Pagamento" Relationship="MyDatabaseModel.FK_Compra_ToPagamento" FromRole="Compra" ToRole="Pagamento" />
           <NavigationProperty Name="User" Relationship="MyDatabaseModel.FK_Compra_ToUsers" FromRole="Compra" ToRole="User" />
           <NavigationProperty Name="Carrinhoes" Relationship="MyDatabaseModel.FK_Carrinho_ToCompra" FromRole="Compra" ToRole="Carrinho" />
+          <Property Name="PrecoTotal" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="TipoPagamento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="FK_Compra_ToPagamento">
           <End Type="MyDatabaseModel.Pagamento" Role="Pagamento" Multiplicity="0..1" />
@@ -484,6 +488,8 @@
           <EntitySetMapping Name="Compras">
             <EntityTypeMapping TypeName="MyDatabaseModel.Compra">
               <MappingFragment StoreEntitySet="Compra">
+                <ScalarProperty Name="TipoPagamento" ColumnName="TipoPagamento" />
+                <ScalarProperty Name="PrecoTotal" ColumnName="PrecoTotal" />
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
                 <ScalarProperty Name="PagamentoID" ColumnName="PagamentoID" />
                 <ScalarProperty Name="vezesPagamento" ColumnName="vezesPagamento" />

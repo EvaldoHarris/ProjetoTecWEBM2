@@ -18,6 +18,75 @@ namespace RegistrationAndLogin.Controllers
             }
         }
 
+        //Edit
+        [HttpGet]
+        public ActionResult Edit(int? idCompra, int? idPacote)
+        {
+            if (idCompra == null)
+                return HttpNotFound();
+
+            if (idPacote == null)
+                return HttpNotFound();
+
+            using (MyDatabaseEntities dc = new MyDatabaseEntities())
+            {
+                var carrinho = dc.Carrinhoes.FirstOrDefault(c => c.CompraID == idCompra && c.PacoteID == idPacote);
+
+                if (carrinho == null)
+                    return HttpNotFound();
+
+                return View(carrinho);
+            }
+        }
+
+        [HttpPost]
+        public ActionResult Edit(Carrinho carrinho)
+        {
+            using (MyDatabaseEntities dc = new MyDatabaseEntities())
+            {
+                dc.Carrinhoes.ToList()[0].DataIda = carrinho.DataIda;
+                dc.Carrinhoes.ToList()[0].DataVolta = carrinho.DataVolta;
+                dc.Carrinhoes.ToList()[0].Quantidade = carrinho.Quantidade;
+                dc.Carrinhoes.ToList()[0].Dias = Convert.ToInt32(carrinho.DataVolta.Value.Subtract(carrinho.DataIda.Value).TotalDays);
+                dc.SaveChanges();
+            }
+
+            return RedirectToAction(nameof(Index));
+        }
+
+        //Delete
+        [HttpGet]
+        public ActionResult Delete(int? idCompra, int? idPacote)
+        {
+            if (idCompra == null)
+                return HttpNotFound();
+
+            if (idPacote == null)
+                return HttpNotFound();
+
+            using (MyDatabaseEntities dc = new MyDatabaseEntities())
+            {
+                var carrinho = dc.Carrinhoes.FirstOrDefault(c => c.CompraID == idCompra && c.PacoteID == idPacote);
+
+                if (carrinho == null)
+                    return HttpNotFound();
+
+                return View(carrinho);
+            }
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DeleteConfirmed(int idCompra, int idPacote)
+        {
+            using (MyDatabaseEntities dc = new MyDatabaseEntities())
+            {
+                var carrinho = dc.Carrinhoes.ToList()[0];
+                dc.Carrinhoes.Remove(carrinho);
+                dc.SaveChanges();
+                return RedirectToAction(nameof(Index));
+            }
+        }
+
         public ActionResult AddHotel(int? idCompra, int? idPacote)
         {
             if (idCompra == null)
@@ -49,7 +118,7 @@ namespace RegistrationAndLogin.Controllers
                 var hotel = dc.Hotels.FirstOrDefault(h => h.Id == id);
 
                 if (hotel == null)
-                    return RedirectToAction(nameof(Index));
+                    return HttpNotFound();
 
                 dc.Carrinhoes.ToList()[0].HotelID = hotel.Id;
                 dc.Carrinhoes.ToList()[0].HotelNome = hotel.Nome;
@@ -77,6 +146,47 @@ namespace RegistrationAndLogin.Controllers
                 List<Voo> voosPacote = dc.Voos.Where(v => v.Destino == carrinho.Local).ToList();
 
                 return View(voosPacote);
+            }
+        }
+
+        public ActionResult ConfirmAddVoo(int? id)
+        {
+            if (id == null)
+                return HttpNotFound();
+
+            using (MyDatabaseEntities dc = new MyDatabaseEntities())
+            {
+                var voo = dc.Voos.FirstOrDefault(v => v.Id == id);
+
+                if (voo == null)
+                    return HttpNotFound();
+
+                dc.Carrinhoes.ToList()[0].VooID = voo.Id;
+                dc.Carrinhoes.ToList()[0].Voo = voo;
+                dc.SaveChanges();
+
+                return RedirectToAction(nameof(Index));
+            }
+        }
+
+        public ActionResult FinishCompra(int? idCompra, int? idPacote)
+        {
+            if (idCompra == null)
+                return HttpNotFound();
+
+            if (idPacote == null)
+                return HttpNotFound();
+
+            using (MyDatabaseEntities dc = new MyDatabaseEntities())
+            {
+                var carrinho = dc.Carrinhoes.FirstOrDefault(c => c.CompraID == idCompra && c.PacoteID == idPacote);
+                if (carrinho == null)
+                    return RedirectToAction(nameof(Index));
+
+                dc.Compras.ToList()[0].PrecoTotal = carrinho.Quantidade * (carrinho.Pacote.Preco + (carrinho.Hotel.Diaria * carrinho.Dias));
+                dc.SaveChanges();
+
+                return RedirectToAction("Index", "Compra");
             }
         }
     }

@@ -72,6 +72,8 @@
     <EntitySetMapping Name="Compras">
       <EntityTypeMapping TypeName="MyDatabaseModel.Compra">
         <MappingFragment StoreEntitySet="Compra">
+          <ScalarProperty Name="TipoPagamento" ColumnName="TipoPagamento" />
+          <ScalarProperty Name="PrecoTotal" ColumnName="PrecoTotal" />
           <ScalarProperty Name="UserID" ColumnName="UserID" />
           <ScalarProperty Name="PagamentoID" ColumnName="PagamentoID" />
           <ScalarProperty Name="vezesPagamento" ColumnName="vezesPagamento" />

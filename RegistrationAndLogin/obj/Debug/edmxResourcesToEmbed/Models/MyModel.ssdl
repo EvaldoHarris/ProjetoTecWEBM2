@@ -21,8 +21,10 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PrecoTotal" Type="numeric" Precision="18" Scale="2" />
     <Property Name="vezesPagamento" Type="int" />
     <Property Name="PagamentoID" Type="int" />
+    <Property Name="TipoPagamento" Type="varchar" MaxLength="50" />
     <Property Name="UserID" Type="int" />
   </EntityType>
   <EntityType Name="Hotel">

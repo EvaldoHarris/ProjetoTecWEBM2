@@ -306,12 +306,17 @@
     <Content Include="Views\Hotel\Details.cshtml" />
     <Content Include="Views\Hotel\Edit.cshtml" />
     <Content Include="Views\Hotel\Delete.cshtml" />
-    <Content Include="Views\Compra\Index.cshtml" />
     <Content Include="Views\Compra\Create.cshtml" />
     <Content Include="Views\Pacote\Index.cshtml" />
     <Content Include="Views\Carrinho\AddHotel.cshtml" />
     <Content Include="Views\Carrinho\AddVoo.cshtml" />
     <Content Include="Views\Carrinho\Index.cshtml" />
+    <Content Include="Views\Carrinho\Edit.cshtml" />
+    <Content Include="Views\Carrinho\Delete.cshtml" />
+    <Content Include="Views\Compra\Index.cshtml" />
+    <Content Include="Views\Compra\AddPagamento.cshtml" />
+    <Content Include="Views\Compra\Edit.cshtml" />
+    <Content Include="Views\Compra\ConcluirCompra.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

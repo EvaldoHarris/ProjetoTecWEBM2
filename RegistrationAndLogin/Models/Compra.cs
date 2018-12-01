@@ -24,6 +24,8 @@ namespace RegistrationAndLogin.Models
         public Nullable<int> vezesPagamento { get; set; }
         public Nullable<int> PagamentoID { get; set; }
         public Nullable<int> UserID { get; set; }
+        public Nullable<decimal> PrecoTotal { get; set; }
+        public string TipoPagamento { get; set; }
     
         public virtual Pagamento Pagamento { get; set; }
         public virtual User User { get; set; }

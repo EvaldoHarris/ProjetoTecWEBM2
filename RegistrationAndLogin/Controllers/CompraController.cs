@@ -18,25 +18,106 @@ namespace RegistrationAndLogin.Controllers
             }
         }
 
-        //Create
+        //Edit
         [HttpGet]
-        public ActionResult Create()
+        public ActionResult Edit(int? id)
         {
-            return View();
+            if (id == null)
+                return HttpNotFound();
+
+            using (MyDatabaseEntities dc = new MyDatabaseEntities())
+            {
+                var compra = dc.Compras.FirstOrDefault(c => c.Id == id);
+
+                if (compra == null)
+                    return HttpNotFound();
+
+                return View(compra);
+            }
         }
 
         [HttpPost]
-        public ActionResult Create(Compra compra)
-        {   
+        public ActionResult Edit(Compra compra)
+        {
             using (MyDatabaseEntities dc = new MyDatabaseEntities())
             {
-                //compra.UserID = dc.Users.Where(a => a.EmailID == compra.EmailConfirmar).FirstOrDefault().UserID;
-                dc.Compras.Add(compra);
+                dc.Compras.ToList()[0].vezesPagamento = compra.vezesPagamento;
                 dc.SaveChanges();
             }
 
             return RedirectToAction(nameof(Index));
         }
 
+        public ActionResult AddPagamento(int? id)
+        {
+            if (id == null)
+                return HttpNotFound();
+
+            using (MyDatabaseEntities dc = new MyDatabaseEntities())
+            {
+                var compra = dc.Compras.FirstOrDefault(c => c.Id == id);
+                if (compra == null)
+                    return HttpNotFound();
+
+                return View(dc.Pagamentoes.ToList());
+            }
+        }
+
+        public ActionResult ConfirmAddPagamento(int? id)
+        {
+            if (id == null)
+                return HttpNotFound();
+
+            using (MyDatabaseEntities dc = new MyDatabaseEntities())
+            {
+                var pagamento = dc.Pagamentoes.FirstOrDefault(p => p.Id == id);
+                if (pagamento == null)
+                    return HttpNotFound();
+
+                dc.Compras.ToList()[0].PagamentoID = pagamento.Id;
+                dc.Compras.ToList()[0].TipoPagamento = pagamento.Tipo;
+                if (dc.Compras.ToList()[0].TipoPagamento.Equals("Boleto"))
+                    dc.Compras.ToList()[0].vezesPagamento = 1;
+                else
+                    dc.Compras.ToList()[0].vezesPagamento = null;
+                dc.Compras.ToList()[0].Pagamento = pagamento;
+                dc.SaveChanges();
+
+                return RedirectToAction(nameof(Index));
+            }
+        }
+
+        public ActionResult ConcluirCompra(int? id)
+        {
+            if (id == null)
+                return HttpNotFound();
+
+            using (MyDatabaseEntities dc = new MyDatabaseEntities())
+            {
+                var compra = dc.Compras.FirstOrDefault(c => c.Id == id);
+                if (compra == null)
+                    return HttpNotFound();
+
+                return View(compra);
+            }
+        }
+
+        [HttpPost, ActionName("ConcluirCompra")]
+        public ActionResult ConcluirCompraConfirmed(int id)
+        {
+            using (MyDatabaseEntities dc = new MyDatabaseEntities())
+            {
+                var carrinho = dc.Carrinhoes.ToList()[0];
+                dc.Carrinhoes.Remove(carrinho);
+                dc.Compras.ToList()[0].PagamentoID = null;
+                dc.Compras.ToList()[0].TipoPagamento = null;
+                dc.Compras.ToList()[0].Pagamento = null;
+                dc.Compras.ToList()[0].PrecoTotal = null;
+                dc.Compras.ToList()[0].vezesPagamento = null;
+                dc.SaveChanges();
+
+                return RedirectToAction("Index", "Home");
+            }
+        }
     }
 }

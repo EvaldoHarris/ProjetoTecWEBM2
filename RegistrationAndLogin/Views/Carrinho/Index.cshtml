@@ -57,10 +57,11 @@
                 @Html.DisplayFor(modelItem => item.Quantidade)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { idCompra = item.CompraID, idPacote = item.PacoteID }) |
+                @Html.ActionLink("Informações", "Edit", new { idCompra = item.CompraID, idPacote = item.PacoteID }) |
                 @Html.ActionLink("Adicionar Hotel", "AddHotel", new { idCompra = item.CompraID, idPacote = item.PacoteID }) |
                 @Html.ActionLink("Adicionar Voo", "AddVoo", new { idCompra = item.CompraID, idPacote = item.PacoteID }) |
-                @Html.ActionLink("Delete", "Delete", new { idCompra = item.CompraID, idPacote = item.PacoteID })
+                @Html.ActionLink("Delete", "Delete", new { idCompra = item.CompraID, idPacote = item.PacoteID }) |
+                @Html.ActionLink("Finalizar Compra", "FinishCompra", new { idCompra = item.CompraID, idPacote = item.PacoteID })
             </td>
         </tr>
     }

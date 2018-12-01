@@ -127,6 +127,9 @@ namespace RegistrationAndLogin.Controllers
             {
                 var pacote = dc.Pacotes.FirstOrDefault(h => h.Id == id);
 
+                if (dc.Carrinhoes.ToList().Count > 0)
+                    return HttpNotFound(); //colocar página de erro pois só pode adicionar 1
+
                 Carrinho c = new Carrinho();
                 c.PacoteID = pacote.Id;
                 c.Pacote = pacote;
@@ -138,64 +141,6 @@ namespace RegistrationAndLogin.Controllers
 
                 //return View(dc.Carrinhoes.ToList());
                 return RedirectToAction(nameof(Index));
-            }
-        }
-
-        public ActionResult DetailsCarrinho(int? idCompra, int? idPacote)
-        {
-            if (idCompra == null)
-                return HttpNotFound();
-
-            if (idPacote == null)
-                return HttpNotFound();
-
-            using (MyDatabaseEntities dc = new MyDatabaseEntities())
-            {
-                var carrinho = dc.Carrinhoes.FirstOrDefault(c => c.CompraID == idCompra && c.PacoteID == idPacote);
-                if(carrinho == null)
-                    return RedirectToAction(nameof(AddCarrinho));
-
-                return View(carrinho);
-            }
-        }
-
-        public ActionResult AddHotel(int? idCompra, int? idPacote)
-        {  
-            if (idCompra == null)
-                return HttpNotFound();
-
-            if (idPacote == null)
-                return HttpNotFound();
-
-            using (MyDatabaseEntities dc = new MyDatabaseEntities())
-            {
-                var carrinho = dc.Carrinhoes.FirstOrDefault(c => c.CompraID == idCompra && c.PacoteID == idPacote);
-                if (carrinho == null)
-                    return RedirectToAction(nameof(AddCarrinho));
-
-                List<Hotel> hoteisPacote = dc.Hotels.Where(h => h.Local == carrinho.Local).ToList();
-
-                return View(hoteisPacote);
-            }
-        }
-
-        public ActionResult AddVoo(int? idCompra, int? idPacote)
-        {
-            if (idCompra == null)
-                return HttpNotFound();
-
-            if (idPacote == null)
-                return HttpNotFound();
-
-            using (MyDatabaseEntities dc = new MyDatabaseEntities())
-            {
-                var carrinho = dc.Carrinhoes.FirstOrDefault(c => c.CompraID == idCompra && c.PacoteID == idPacote);
-                if (carrinho == null)
-                    return RedirectToAction(nameof(AddCarrinho));
-
-                List<Voo> voosPacote = dc.Voos.Where(v => v.Destino == carrinho.Local).ToList();
-
-                return View(voosPacote);
             }
         }
     }
