@@ -98,6 +98,9 @@ namespace RegistrationAndLogin.Controllers
                 if (compra == null)
                     return HttpNotFound();
 
+                if (compra.PagamentoID == null || compra.vezesPagamento == null)
+                    return HttpNotFound(); //retornar mensagem escrito: "Faltam campos a preencher"
+
                 return View(compra);
             }
         }

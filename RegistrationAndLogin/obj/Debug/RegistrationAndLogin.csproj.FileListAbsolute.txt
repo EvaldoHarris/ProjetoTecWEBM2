@@ -300,7 +300,6 @@ C:\Users\evald\Desktop\web du\ProjetoTecWEBM2\RegistrationAndLogin\bin\System.We
 C:\Users\evald\Desktop\web du\ProjetoTecWEBM2\RegistrationAndLogin\bin\System.Web.Webpages.Razor.xml
 C:\Users\evald\Desktop\web du\ProjetoTecWEBM2\RegistrationAndLogin\bin\System.Web.Helpers.xml
 C:\Users\evald\Desktop\web du\ProjetoTecWEBM2\RegistrationAndLogin\bin\System.Web.Mvc.xml
-C:\Users\evald\Desktop\web du\ProjetoTecWEBM2\RegistrationAndLogin\obj\Debug\RegistrationAndLogin.csprojAssemblyReference.cache
 C:\Users\evald\Desktop\web du\ProjetoTecWEBM2\RegistrationAndLogin\obj\Debug\RegistrationAndLogin.csproj.CoreCompileInputs.cache
 C:\Users\evald\Desktop\web du\ProjetoTecWEBM2\RegistrationAndLogin\obj\Debug\RegistrationAndLogin.csproj.CopyComplete
 C:\Users\evald\Desktop\web du\ProjetoTecWEBM2\RegistrationAndLogin\obj\Debug\RegistrationAndLogin.dll

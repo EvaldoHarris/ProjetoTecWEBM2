@@ -183,6 +183,9 @@ namespace RegistrationAndLogin.Controllers
                 if (carrinho == null)
                     return RedirectToAction(nameof(Index));
 
+                if (carrinho.HotelID == null || carrinho.VooID == null || carrinho.DataIda == null || carrinho.DataVolta == null || carrinho.Quantidade == null || carrinho.Dias == null)
+                    return HttpNotFound(); //retornar mensagem escrito: "Faltam campos a preencher"
+
                 dc.Compras.ToList()[0].PrecoTotal = carrinho.Quantidade * (carrinho.Pacote.Preco + (carrinho.Hotel.Diaria * carrinho.Dias));
                 dc.SaveChanges();
 

@@ -140,7 +140,7 @@ namespace RegistrationAndLogin.Controllers
                 dc.SaveChanges();
 
                 //return View(dc.Carrinhoes.ToList());
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index", "Carrinho");
             }
         }
     }
