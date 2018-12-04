@@ -3,7 +3,15 @@
 @{
     ViewBag.Title = "ConcluirCompra";
 }
-
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("Logout", "User", FormMethod.Post, new { id = "logoutForm" }))
+    {
+        <p class="saud">
+            Seja Bem vindo @HttpContext.Current.User.Identity.Name
+        </p>
+    }
+}
 <h2>Concluir Compra</h2>
 
 <div>
@@ -35,12 +43,19 @@
         </dd>
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Concluir" class="btn btn-default" /> |
+            <input type="submit" value="Concluir" onclick="concluir();" class="btn btn-default" /> |
             @Html.ActionLink("Back to List", "Index")
+
+            <script>
+                function concluir() {
+                    alert("Sua compra foi finalizada com sucesso!!")
+                }
+            </script>
         </div>
     }
 </div>

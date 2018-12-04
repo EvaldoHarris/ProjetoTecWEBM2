@@ -357,3 +357,4 @@ C:\Users\evald\Desktop\WEB\ProjetoTecWEBM2\RegistrationAndLogin\obj\Debug\Regist
 C:\Users\evald\Desktop\WEB\ProjetoTecWEBM2\RegistrationAndLogin\obj\Debug\RegistrationAndLogin.dll
 C:\Users\evald\Desktop\WEB\ProjetoTecWEBM2\RegistrationAndLogin\obj\Debug\RegistrationAndLogin.pdb
 D:\Eduardo\Facens\6º Semestre\Tecnologias Web I - LAB\Módulo 2 - Projeto\ProjetoTecWEBM2\RegistrationAndLogin\obj\Debug\RegistrationAndLogin.csprojAssemblyReference.cache
+C:\Users\evald\Desktop\web du\ProjetoTecWEBM2\RegistrationAndLogin\obj\Debug\RegistrationAndLogin.csprojAssemblyReference.cache

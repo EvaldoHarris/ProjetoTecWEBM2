@@ -1,0 +1,17 @@
+﻿@model RegistrationAndLogin.Models.Carrinho
+<script src="~/Scripts/pagRev.js"></script>
+
+@{
+    ViewBag.Title = "CarrinhoError";
+}
+
+<h2>OPS! Algumas informações estão faltando</h2>
+
+<div>
+    <hr />
+    <p>Voce esqueceu de alumas informações.Clique em "Voltar ao Carrinho" para finalizar sua compra</p>
+
+</div>
+<p>
+    @Html.ActionLink("Voltar ao Carrinho", "Index")
+</p>

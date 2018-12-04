@@ -1,0 +1,16 @@
+﻿@model RegistrationAndLogin.Models.Compra
+<link href="~/Content/PagRev.css" type="text/css" rel="stylesheet" />
+@{
+    ViewBag.Title = "CompraError";
+}
+
+<h2>OPS! Algumas informações estão faltando</h2>
+
+<div>
+    <hr />
+    <p>Voce esqueceu do tipo de pagamento e sua compra não pode ser completada. Clique em "Voltar ao Carrinho" para finalizar sua compla</p>
+    
+</div>
+<p class="button">
+    @Html.ActionLink("Voltar à Compra", "Index")
+</p>

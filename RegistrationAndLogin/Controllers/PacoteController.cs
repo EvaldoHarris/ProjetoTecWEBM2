@@ -126,21 +126,28 @@ namespace RegistrationAndLogin.Controllers
             using (MyDatabaseEntities dc = new MyDatabaseEntities())
             {
                 var pacote = dc.Pacotes.FirstOrDefault(h => h.Id == id);
-
                 if (dc.Carrinhoes.ToList().Count > 0)
-                    return HttpNotFound(); //colocar página de erro pois só pode adicionar 1
+                    return RedirectToAction("CarrinhoError", "Carrinho"); //colocar página de erro pois só pode adicionar 1
 
                 Carrinho c = new Carrinho();
-                c.PacoteID = pacote.Id;
-                c.Pacote = pacote;
-                c.Local = pacote.Local;
-                c.CompraID = dc.Compras.ToList()[0].Id;
-                c.Compra = dc.Compras.ToList()[0];
-                dc.Carrinhoes.Add(c);
-                dc.SaveChanges();
+                if (c.CompraID > 0)
+                {
+                    
+                    c.PacoteID = pacote.Id;
+                    c.Pacote = pacote;
+                    c.Local = pacote.Local;
+                    c.CompraID = dc.Compras.ToList()[0].Id;
+                    c.Compra = dc.Compras.ToList()[0];
+                    dc.Carrinhoes.Add(c);
+                    dc.SaveChanges();
 
-                //return View(dc.Carrinhoes.ToList());
-                return RedirectToAction("Index", "Carrinho");
+                    //return View(dc.Carrinhoes.ToList());
+                    return RedirectToAction("Index", "Carrinho");
+                }
+                else
+                {
+                    return RedirectToAction("Login", "User");
+                }
             }
         }
     }

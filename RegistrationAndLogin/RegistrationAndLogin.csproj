@@ -317,6 +317,8 @@
     <Content Include="Views\Compra\AddPagamento.cshtml" />
     <Content Include="Views\Compra\Edit.cshtml" />
     <Content Include="Views\Compra\ConcluirCompra.cshtml" />
+    <Content Include="Views\Carrinho\CarrinhoError.cshtml" />
+    <Content Include="Views\Compra\CompraError.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

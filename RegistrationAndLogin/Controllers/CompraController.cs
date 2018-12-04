@@ -99,7 +99,7 @@ namespace RegistrationAndLogin.Controllers
                     return HttpNotFound();
 
                 if (compra.PagamentoID == null || compra.vezesPagamento == null)
-                    return HttpNotFound(); //retornar mensagem escrito: "Faltam campos a preencher"
+                    return RedirectToAction("CompraError", "Compra"); //retornar mensagem escrito: "Faltam campos a preencher"
 
                 return View(compra);
             }
@@ -121,6 +121,12 @@ namespace RegistrationAndLogin.Controllers
 
                 return RedirectToAction("Index", "Home");
             }
+        }
+
+        [Authorize]
+        public ActionResult CompraError()
+        {
+            return View();
         }
     }
 }

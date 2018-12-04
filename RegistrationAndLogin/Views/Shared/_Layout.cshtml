@@ -25,11 +25,15 @@
                 <!--@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "navbar-brand"})-->
                 <a href="/Home/" id="m" class="navbar-brand">Home</a>
                 <a href="/Pacote" id="m" class="navbar-brand">Pacote</a>
-                <a href="/Hotel" id="m" class="navbar-brand">Hotel</a>
+
                 <a href="/Voo" id="m" class="navbar-brand">Voo</a>
                 <a href="/Carrinho" id="m" class="navbar-brand">Carrinho</a>
                 @if (Request.IsAuthenticated)
                 {
+                    if (@HttpContext.Current.User.Identity.Name == "evaldo.joaoj@hotmail.com")
+                    {
+                        <a href="/Hotel" id="m" class="navbar-brand">Hotel</a>
+                    }
                     <a id="m" href="javascript:document.getElementById('logoutForm').submit()" class="navbar-brand">Sair</a>
                 }
                 else

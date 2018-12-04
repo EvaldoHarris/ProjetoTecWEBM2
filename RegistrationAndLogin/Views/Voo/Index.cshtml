@@ -3,8 +3,16 @@
 @{
     ViewBag.Title = "Index";
 }
-
-<h2>Index</h2>
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("Logout", "User", FormMethod.Post, new { id = "logoutForm" }))
+    {
+        <p class="saud">
+            Seja Bem vindo @HttpContext.Current.User.Identity.Name
+        </p>
+    }
+}
+<h2>Voo</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -26,26 +34,27 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Empresa)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Origem)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Destino)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.qtdPassageiros)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Empresa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Origem)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Destino)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.qtdPassageiros)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
 
 </table>

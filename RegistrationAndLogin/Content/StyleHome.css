@@ -4,8 +4,9 @@
 }
 
 body {
-    background-color: gray;
+    //background-color: gray;
 }
+
 
 .titulo {
     text-align: center;
@@ -24,17 +25,18 @@ body {
     -webkit-text-stroke-color: gray; /* cor da borda */
     color: white;
 }
-
 #F {
     table-layout: fixed;
-    float: left;
     font-family: Arial, sans-serif;
     margin-top: 10px;
     padding-top: -150px;
     margin-left: 5px;
     padding-left: -900px;
+    float: left;
 }
-
+tr{
+    margin-top: -200px;
+}
 .pF {
     
     text-align: center;
@@ -61,14 +63,19 @@ body {
     width: 300px;
     padding-left: -90px;
 }
-
-a:hover {
+#t:hover {
     color: white;
     text-shadow: black 0.2em 0.2em 0.10em;
     -webkit-text-stroke-width: 1px; /* largura da borda */
     -webkit-text-stroke-color: black; /* cor da borda */
 }
-#m {
+.add{
+    float: left;
+}
+#m:hover {
+    color: white;
+    text-shadow: black 0.2em 0.2em 0.10em;
+    -webkit-text-stroke-width: 1px; /* largura da borda */
     -webkit-text-stroke-color: white; /* cor da borda */
 }
 hr {

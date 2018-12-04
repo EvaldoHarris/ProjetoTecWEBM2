@@ -3,6 +3,15 @@
 @{
     ViewBag.Title = "Details";
 }
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("Logout", "User", FormMethod.Post, new { id = "logoutForm" }))
+    {
+        <p class="saud">
+            Seja Bem vindo @HttpContext.Current.User.Identity.Name
+        </p>
+    }
+}
 
 <h2>Details</h2>
 
@@ -34,21 +43,7 @@
             @Html.DisplayFor(model => model.Descricao)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Imagem)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Imagem)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Promocao)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Promocao)
-        </dd>
 
     </dl>
 </div>
