@@ -1,9 +1,16 @@
 ﻿@model IEnumerable<RegistrationAndLogin.Models.Pagamento>
+<link href="~/Content/StylePag.css" type="text/css" rel="stylesheet" />
 
 @{
     ViewBag.Title = "AddPagamento";
 }
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("Logout", "User", FormMethod.Post, new { id = "logoutForm" }))
+    {
 
+    }
+}
 <h2>Escola a forma de Pagamento</h2>
 
 <table class="table">
@@ -14,15 +21,16 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Tipo)
-        </td>
-        <td>
-            @Html.ActionLink("Adicionar", "ConfirmAddPagamento", new { id=item.Id }) 
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tipo)
+            </td>
+            <td>
+                @Html.ActionLink("Adicionar", "ConfirmAddPagamento", new { id = item.Id })
+            </td>
+        </tr>
+    }
 
 </table>

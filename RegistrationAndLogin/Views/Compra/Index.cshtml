@@ -1,48 +1,54 @@
 ﻿@model IEnumerable<RegistrationAndLogin.Models.Compra>
-
+<link href="~/Content/StylePag.css" type="text/css" rel="stylesheet" />
 @{
     ViewBag.Title = "Index";
 }
 
 <h2>Index</h2>
-
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.TipoPagamento)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.vezesPagamento)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UserID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PrecoTotal)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.TipoPagamento)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.vezesPagamento)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UserID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PrecoTotal)
-        </td>
-        <td>
-            @Html.ActionLink("Adicionar Forma de Pagamento", "AddPagamento", new { id = item.Id }) |
-            @Html.ActionLink("Informações", "Edit", new { id = item.Id }) |
-            @Html.ActionLink("Concluir", "ConcluirCompra", new { id = item.Id })
-        </td>
-    </tr>
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("Logout", "User", FormMethod.Post, new { id = "logoutForm" }))
+    {
+    }
 }
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.TipoPagamento)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.vezesPagamento)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.UserID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PrecoTotal)
+                </th>
+                <th></th>
+            </tr>
 
-</table>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TipoPagamento)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.vezesPagamento)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UserID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PrecoTotal)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Adicionar Forma de Pagamento", "AddPagamento", new { id = item.Id }) |
+                        @Html.ActionLink("Informações", "Edit", new { id = item.Id }) |
+                        @Html.ActionLink("Concluir", "ConcluirCompra", new { id = item.Id })
+                    </td>
+                </tr>
+            }
+
+        </table>

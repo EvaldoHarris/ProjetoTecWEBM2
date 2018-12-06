@@ -1,17 +1,25 @@
 ﻿@model RegistrationAndLogin.Models.Carrinho
-<script src="~/Scripts/pagRev.js"></script>
+<link href="~/Content/PagRev.css" type="text/css" rel="stylesheet" />
 
 @{
     ViewBag.Title = "CarrinhoError";
 }
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("Logout", "User", FormMethod.Post, new { id = "logoutForm" }))
+    {
 
-<h2>OPS! Algumas informações estão faltando</h2>
+    }
+}
+<body class="b">
+    <h2>OPS! Algumas informações estão faltando</h2>
 
-<div>
-    <hr />
-    <p>Voce esqueceu de alumas informações.Clique em "Voltar ao Carrinho" para finalizar sua compra</p>
+    <div class="p">
+        <hr />
+        <p>Você esqueceu de algumas informações.Clique em "Voltar ao Carrinho" para finalizar sua compra</p>
+        <p class="button">
+            @Html.ActionLink("Voltar ao Carrinho", "Index")
+        </p>
+    </div>
 
-</div>
-<p>
-    @Html.ActionLink("Voltar ao Carrinho", "Index")
-</p>
+</body>

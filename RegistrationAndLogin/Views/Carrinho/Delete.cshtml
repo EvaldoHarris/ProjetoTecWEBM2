@@ -1,14 +1,20 @@
 ﻿@model RegistrationAndLogin.Models.Carrinho
+<link href="~/Content/PagRev.css" type="text/css" rel="stylesheet" />
 
 @{
     ViewBag.Title = "Delete";
 }
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("Logout", "User", FormMethod.Post, new { id = "logoutForm" }))
+    {
 
-<h2>Delete</h2>
+    }
+}
+<h2>Deletar do Carrinho</h2>
+<h3>Tem certeza que deseja excluir?</h3>
 
-<h3>Are you sure you want to delete this?</h3>
 <div>
-    <h4>Carrinho</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -28,7 +34,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.DataIda)
+            Data Ida
         </dt>
 
         <dd>
@@ -36,7 +42,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.DataVolta)
+            Data Volta
         </dt>
 
         <dd>
@@ -52,7 +58,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.HotelNome)
+            Hotel
         </dt>
 
         <dd>
@@ -69,7 +75,8 @@
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">

@@ -1,14 +1,17 @@
 ﻿@model IEnumerable<RegistrationAndLogin.Models.Voo>
-
+<link href="~/Content/StylePag.css" type="text/css" rel="stylesheet" />
 @{
     ViewBag.Title = "AddVoo";
 }
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("Logout", "User", FormMethod.Post, new { id = "logoutForm" }))
+    {
 
-<h2>AddVoo</h2>
+    }
+}
+<h2>Adicionar Voo</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
@@ -26,24 +29,25 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Empresa)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Origem)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Destino)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.qtdPassageiros)
-        </td>
-        <td>
-            @Html.ActionLink("Adicionar", "ConfirmAddVoo", new { id=item.Id }) 
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Empresa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Origem)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Destino)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.qtdPassageiros)
+            </td>
+            <td>
+                @Html.ActionLink("Adicionar", "ConfirmAddVoo", new { id = item.Id })
+            </td>
+        </tr>
+    }
 
 </table>

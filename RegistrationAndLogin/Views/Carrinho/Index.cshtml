@@ -1,5 +1,7 @@
 ﻿@model IEnumerable<RegistrationAndLogin.Models.Carrinho>
 <script src="~/Scripts/pagRev.js"></script>
+<link href="~/Content/StylePag.css" type="text/css" rel="stylesheet" />
+
 @{
     ViewBag.Title = "AddCarrinho";
 }
@@ -7,12 +9,9 @@
 {
     using (Html.BeginForm("Logout", "User", FormMethod.Post, new { id = "logoutForm" }))
     {
-        <p class="saud">
-            Seja Bem vindo @HttpContext.Current.User.Identity.Name
-        </p>
-    }
-}   
 
+    }
+}
 <h2>Carrinho</h2>
 
 <table class="table">
@@ -43,43 +42,29 @@
 
     @foreach (var item in Model)
     {
-    <tr>
-        <td id="local">
-            @Html.DisplayFor(modelItem => item.Local)
-        </td>
-        <td id="hotel">
-            @Html.DisplayFor(modelItem => item.HotelNome)
-        </td>
-        <td id="voo">
-            @Html.DisplayFor(modelItem => item.VooID)
-        </td>
-        <td id="dataIda">
-            @Html.DisplayFor(modelItem => item.DataIda)
-        </td>
-        <td id="dataVolta">
-            @Html.DisplayFor(modelItem => item.DataVolta)
-        </td>
-        <td id="dias">
-            @Html.DisplayFor(modelItem => item.Dias)
-        </td>
-        <td id="qtd">
-            @Html.DisplayFor(modelItem => item.Quantidade)
-        </td>
-        @if (Request.IsAuthenticated)
-        {
-            using (Html.BeginForm("Logout", "User", FormMethod.Post, new { id = "logoutForm" }))
-            {
-                <td>
-                    @Html.ActionLink("Informações", "Login", new { idCompra = item.CompraID, idPacote = item.PacoteID }) |
-                    @Html.ActionLink("Adicionar Hotel", "Login", new { idCompra = item.CompraID, idPacote = item.PacoteID }) |
-                    @Html.ActionLink("Adicionar Voo", "Login", new { idCompra = item.CompraID, idPacote = item.PacoteID }) |
-                    @Html.ActionLink("Delete", "Login", new { idCompra = item.CompraID, idPacote = item.PacoteID }) |
-                    @Html.ActionLink("Finalizar Compra", "Login", new { idCompra = item.CompraID, idPacote = item.PacoteID })
-                </td>
-            }
-        }
-        else
-        {
+        <tr>
+            <td id="local">
+                @Html.DisplayFor(modelItem => item.Local)
+            </td>
+            <td id="hotel">
+                @Html.DisplayFor(modelItem => item.HotelNome)
+            </td>
+            <td id="voo">
+                @Html.DisplayFor(modelItem => item.VooID)
+            </td>
+            <td id="dataIda">
+                @Html.DisplayFor(modelItem => item.DataIda)
+            </td>
+            <td id="dataVolta">
+                @Html.DisplayFor(modelItem => item.DataVolta)
+            </td>
+            <td id="dias">
+                @Html.DisplayFor(modelItem => item.Dias)
+            </td>
+            <td id="qtd">
+                @Html.DisplayFor(modelItem => item.Quantidade)
+            </td>
+
             <td>
                 @Html.ActionLink("Informações", "Edit", new { idCompra = item.CompraID, idPacote = item.PacoteID }) |
                 @Html.ActionLink("Adicionar Hotel", "AddHotel", new { idCompra = item.CompraID, idPacote = item.PacoteID }) |
@@ -87,10 +72,10 @@
                 @Html.ActionLink("Delete", "Delete", new { idCompra = item.CompraID, idPacote = item.PacoteID }) |
                 @Html.ActionLink("Finalizar Compra", "FinishCompra", new { idCompra = item.CompraID, idPacote = item.PacoteID })
             </td>
-        }
 
 
-    </tr>
+
+        </tr>
     }
 
 </table>

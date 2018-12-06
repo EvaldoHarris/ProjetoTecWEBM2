@@ -10,6 +10,7 @@ namespace RegistrationAndLogin.Controllers
     public class HotelController : Controller
     {
         // GET: Hotel
+        [Authorize]
         public ActionResult Index()
         {
             using (MyDatabaseEntities dc = new MyDatabaseEntities())

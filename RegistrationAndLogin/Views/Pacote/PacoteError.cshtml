@@ -1,0 +1,27 @@
+﻿<link href="~/Content/PagRev.css" type="text/css" rel="stylesheet" />
+
+@{
+    ViewBag.Title = "PacoteError";
+}
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("Logout", "User", FormMethod.Post, new { id = "logoutForm" }))
+    {
+
+    }
+}
+<h2>Error</h2>
+<body class="b">
+
+    <div class="p">
+        <hr />
+        <p>Ops! Parece que você ja possui pacotes em seu carrinho.Clique em "Voltar ao carrinho" para Editar ou Excluir esse pacote.</p>
+        <p class="button">
+            <a href="/Carrinho">Voltar ao Carrinho</a>
+
+        </p>
+    </div>
+
+</body>
+
+

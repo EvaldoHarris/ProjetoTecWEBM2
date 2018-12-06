@@ -3,14 +3,20 @@
 @{
     ViewBag.Title = "Edit";
 }
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("Logout", "User", FormMethod.Post, new { id = "logoutForm" }))
+    {
 
-<h2>Edit</h2>
+    }
+}
+<h2>Editar</h2>
 
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Pacote</h4>
         <hr />

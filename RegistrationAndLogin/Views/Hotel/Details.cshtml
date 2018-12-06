@@ -3,7 +3,13 @@
 @{
     ViewBag.Title = "Details";
 }
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("Logout", "User", FormMethod.Post, new { id = "logoutForm" }))
+    {
 
+    }
+}
 <h2>Details</h2>
 
 <div>

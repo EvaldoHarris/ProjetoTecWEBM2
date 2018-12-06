@@ -146,6 +146,7 @@
     <Content Include="img\buenosaires.jpg" />
     <Content Include="img\bWuREk.jpg" />
     <Content Include="img\Dicas-Rio-de-Janeiro-3.jpg" />
+    <Content Include="img\Error.png" />
     <Content Include="img\f2.jpg" />
     <Content Include="img\f3.jpg" />
     <Content Include="img\f4.jpg" />
@@ -319,6 +320,7 @@
     <Content Include="Views\Compra\ConcluirCompra.cshtml" />
     <Content Include="Views\Carrinho\CarrinhoError.cshtml" />
     <Content Include="Views\Compra\CompraError.cshtml" />
+    <Content Include="Views\Pacote\PacoteError.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -326,7 +328,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Request\" />
+  </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>

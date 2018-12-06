@@ -1,5 +1,5 @@
 ﻿@model IEnumerable<RegistrationAndLogin.Models.Pacote>
-<link href="~/Content/StyleHome.css" type="text/css" rel="stylesheet" />
+<link href="~/Content/StylePag.css" type="text/css" rel="stylesheet" />
 
 @{
     ViewBag.Title = "Index";
@@ -8,12 +8,9 @@
 {
     using (Html.BeginForm("Logout", "User", FormMethod.Post, new { id = "logoutForm" }))
     {
-        <p class="saud">
-            Seja Bem vindo @HttpContext.Current.User.Identity.Name
-        </p>
+
     }
 }
-
 <h2>Pacotes</h2>
 
 <table class="table">
@@ -27,46 +24,33 @@
         <th></th>
     </tr>
 
+    @foreach (var item in Model)
+    {
 
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Local)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Preco)
+            </td>
 
-    <div id="F">
-        <img src="~/img/Rio de Janeiro.jpg" width="280" height="200">
-        <a id="t" href="/Home/RiodeJaneiro" class="pF">Rio de Janeiro </br> Pacotes</br> R$ 303,00</a>
-        @foreach (var item in Model)
-        {
+            <td>
+                @Html.ActionLink("Adicionar ao Carrinho", "AddCarrinho", new { id = item.Id })
 
-            <tr>
+            </td>
+            @if (@HttpContext.Current.User.Identity.Name == "evaldo.joaoj@hotmail.com")
+            {
                 <td>
-                    @Html.DisplayFor(modelItem => item.Local)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Preco)
-                </td>
-
-                <td>
-                    @Html.ActionLink("Adicionar ao Carrinho", "AddCarrinho", new { id = item.Id }) |
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    | @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
                     @Html.ActionLink("Details", "Details", new { id = item.Id }) |
                     @Html.ActionLink("Delete", "Delete", new { id = item.Id })
                 </td>
-            </tr>
+            }
+            }
+        </tr>
 
-        }
-    </div>
-    <div id="F">
-        <img src="~/img/pontefloriano.jpg" width="280" height="200">
-        <a id="t" href="/Home/Florianopolis" class="pF">Florianopolis</br> Pacotes</br> R$ 243,00</a>
-    </div>
-
-    <div id="F">
-        <img src="~/img/santiago.jpg" width="280" height="200">
-        <a id="t" href="/Home/Santiago" class="pF">Santiago</br> Pacotes</br> R$ 722,00 </a>
-    </div>
-
-    <div id="F">
-        <img src="~/img/buenosaires.jpg" width="280" height="200">
-        <a id="t" href="/Home/BuenosAires" class="pF">Buenos Aires</br> Pacotes</br> R$ 510,00</a>
-    </div>
+    }
 
 </table>
 

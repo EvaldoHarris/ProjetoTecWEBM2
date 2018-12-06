@@ -130,13 +130,16 @@ input {
     margin-left: 80px;
     font-size: 35px;
 }
-a:hover {
+#t:hover {
     color: white;
     text-shadow: black 0.2em 0.2em 0.10em;
     -webkit-text-stroke-width: 1px; /* largura da borda */
     -webkit-text-stroke-color: black; /* cor da borda */
 }
-#m , #botao{
+#m:hover {
+    color: white;
+    text-shadow: black 0.2em 0.2em 0.10em;
+    -webkit-text-stroke-width: 1px; /* largura da borda */
     -webkit-text-stroke-color: white; /* cor da borda */
 }
 .hotel:hover {
@@ -145,4 +148,20 @@ a:hover {
 }
 hr{
     margin-top: -450px;
+}
+td, th {
+    font-weight: bold;
+    color: black;
+    border: solid black 1px;
+    background-color: lightgray;
+    border-radius: 5px;
+    padding-left: 50px;
+    text-align: center;
+}
+error {
+    background: url(../img/Error.png) no-repeat center top fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }

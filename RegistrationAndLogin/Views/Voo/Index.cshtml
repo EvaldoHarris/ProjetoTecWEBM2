@@ -1,5 +1,5 @@
 ﻿@model IEnumerable<RegistrationAndLogin.Models.Voo>
-
+<link href="~/Content/StylePag.css" type="text/css" rel="stylesheet" />
 @{
     ViewBag.Title = "Index";
 }
@@ -7,9 +7,7 @@
 {
     using (Html.BeginForm("Logout", "User", FormMethod.Post, new { id = "logoutForm" }))
     {
-        <p class="saud">
-            Seja Bem vindo @HttpContext.Current.User.Identity.Name
-        </p>
+        
     }
 }
 <h2>Voo</h2>

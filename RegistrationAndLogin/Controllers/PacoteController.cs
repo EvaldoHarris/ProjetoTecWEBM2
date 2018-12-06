@@ -10,6 +10,7 @@ namespace RegistrationAndLogin.Controllers
     public class PacoteController : Controller
     {
         // GET: Pacote
+        [Authorize]
         public ActionResult Index()
         {
             using (MyDatabaseEntities dc = new MyDatabaseEntities())
@@ -127,11 +128,10 @@ namespace RegistrationAndLogin.Controllers
             {
                 var pacote = dc.Pacotes.FirstOrDefault(h => h.Id == id);
                 if (dc.Carrinhoes.ToList().Count > 0)
-                    return RedirectToAction("CarrinhoError", "Carrinho"); //colocar página de erro pois só pode adicionar 1
+                    return RedirectToAction("PacoteError", "Pacote"); //colocar página de erro pois só pode adicionar 1
 
                 Carrinho c = new Carrinho();
-                if (c.CompraID > 0)
-                {
+               
                     
                     c.PacoteID = pacote.Id;
                     c.Pacote = pacote;
@@ -143,12 +143,14 @@ namespace RegistrationAndLogin.Controllers
 
                     //return View(dc.Carrinhoes.ToList());
                     return RedirectToAction("Index", "Carrinho");
-                }
-                else
-                {
-                    return RedirectToAction("Login", "User");
-                }
+                
             }
+        }
+
+        [Authorize]
+        public ActionResult PacoteError()
+        {
+            return View();
         }
     }
 }

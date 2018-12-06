@@ -1,15 +1,42 @@
-﻿h2{
+﻿h2,.nAut{
     color: red;
 }
-p,h2{
+p,h2,.nAut{
     text-align: center;
     font-size: 30px;
 }
+.nAut{
+    margin-top: 250px;
+    background-color: black;
+    margin-bottom: 300px;
+}
 .button {
     color: black;
-    margin-left: 500px; 
+    margin-left: 400px; 
     border: solid black 1px;
     border-radius: 8px;
     background-color: red;
     width: 250px;
+}
+a{
+    color: black;
+}
+.error {
+    background: url(../img/Error.png) no-repeat center;
+
+    background-color: midnightblue;
+}
+.b {
+    background: url(../img/viagem001.jpg) no-repeat center top fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+td, th, .p {
+    border: solid black 1px;
+    background-color: lightgray;
+    border-radius: 5px;
+    padding-left: 50px;
+    text-align: center;
 }

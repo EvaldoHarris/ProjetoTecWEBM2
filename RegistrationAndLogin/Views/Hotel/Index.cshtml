@@ -1,68 +1,85 @@
 ﻿@model IEnumerable<RegistrationAndLogin.Models.Hotel>
+<link href="~/Content/StylePag.css" type="text/css" rel="stylesheet" />
 
 @{
     ViewBag.Title = "Index";
 }
+
 @if (Request.IsAuthenticated)
 {
     using (Html.BeginForm("Logout", "User", FormMethod.Post, new { id = "logoutForm" }))
+    { 
+
+    if (@HttpContext.Current.User.Identity.Name == "evaldo.joaoj@hotmail.com")
     {
-        <p class="saud">
-            Seja Bem vindo @HttpContext.Current.User.Identity.Name
-        </p>
+
+        <body class="b">
+            <h2>Editar</h2>
+
+
+            <p>
+                @Html.ActionLink("Create New", "Create")
+            </p>
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Nome)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Local)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Descricao)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Diaria)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Estrelas)
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Nome)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Local)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Descricao)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Diaria)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Estrelas)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </body>
+        }
+        else
+        {
+           
+            <h1 class="nAut">
+                O usuário @HttpContext.Current.User.Identity.Name não tem autorização para acessar esse site
+            </h1>
+            
+        <body class="error">
+
+        </body>
+        }
     }
 }
 
-<h2>Editar</h2>
-
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Nome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Local)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Descricao)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Diaria)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Estrelas)
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Local)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Descricao)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Diaria)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Estrelas)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-            </td>
-        </tr>
-    }
-
-</table>
